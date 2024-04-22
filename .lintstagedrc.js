@@ -1,5 +1,5 @@
 export default {
-  "./**/*.{cjs,css,html,js,json,md,mjs,mts,ts,tsx}": (files) => {
+  "./**/*.{cjs,css,html,js,json,md,mjs,mts,ts,tsx,yml}": (files) => {
     const commands = [
       `node node_modules/.bin/prettier --cache --write ${files.join(" ")}`,
     ];
