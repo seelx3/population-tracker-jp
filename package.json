@@ -7,6 +7,7 @@
     "dev": "next dev",
     "format": "sort-package-json && yarn prettify",
     "lint": "next lint",
+    "lint-fix": "next lint --fix",
     "prettify": "prettier --cache --write .",
     "start": "next start"
   },
