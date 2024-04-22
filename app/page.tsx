@@ -18,13 +18,13 @@ const styles = {
   header: css({
     display: "flex",
     flexGrow: 0,
-    height: "5rem",
+    height: "3rem",
     alignItems: "flex-end",
     borderRadius: "0.5rem",
     backgroundColor: "rgb(59 130 246)",
     padding: "1rem",
     "@media (min-width: 768px)": {
-      height: "13rem",
+      height: "5rem",
     },
   }),
   contentContainer: css({
