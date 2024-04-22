@@ -4,7 +4,6 @@ import PopTrackLogo from "@/app/ui/pop-track-logo";
 import { ArrowRightIcon } from "@heroicons/react/24/outline";
 import Link from "next/link";
 import { lusitana } from "@/app/ui/fonts";
-import Image from "next/image";
 
 /** @jsxImportSource @emotion/react */
 import { css } from "@emotion/react";
@@ -138,38 +137,7 @@ export default function Page() {
             />
           </Link>
         </div>
-        <div css={styles.rightContent}>
-          <Image
-            src="/hero-desktop.png"
-            width={1000}
-            height={760}
-            alt="Screenshots of the dashboard project showing desktop version"
-            css={css({
-              // This way of make the image responsive is not recommended
-              // see https://nextjs.org/docs/pages/api-reference/components/image#known-browser-bugs
-              width: "100%",
-              height: "auto",
-              display: "none",
-              "@media (min-width: 768px)": {
-                display: "block",
-              },
-            })}
-          />
-          <Image
-            src="/hero-mobile.png"
-            width={560}
-            height={620}
-            alt="Screenshot of the dashboard project showing mobile version"
-            css={css({
-              width: "100%",
-              height: "auto",
-              display: "block",
-              "@media (min-width: 768px)": {
-                display: "none",
-              },
-            })}
-          />
-        </div>
+        <div css={styles.rightContent}></div>
       </div>
     </main>
   );

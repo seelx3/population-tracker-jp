@@ -1,4 +1,4 @@
-import { GlobeAltIcon } from "@heroicons/react/24/outline";
+import { ChartBarIcon } from "@heroicons/react/24/outline";
 import { lusitana } from "@/app/ui/fonts";
 
 /** @jsxImportSource @emotion/react */
@@ -17,11 +17,10 @@ export default function AcmeLogo() {
         color: "white",
       })}
     >
-      <GlobeAltIcon
+      <ChartBarIcon
         css={css({
           height: "3rem",
           width: "3rem",
-          transform: "rotate(15deg)",
         })}
       />
       <p
@@ -30,7 +29,7 @@ export default function AcmeLogo() {
           fontSize: "2.75rem",
         })}
       >
-        Acme
+        PopTrack
       </p>
     </div>
   );
