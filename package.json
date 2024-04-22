@@ -3,12 +3,12 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
     "build": "next build",
-    "start": "next start",
+    "dev": "next dev",
+    "format": "sort-package-json && yarn prettify",
     "lint": "next lint",
-    "prettier": "prettier --write --ignore-unknown .",
-    "prettier:check": "prettier --check --ignore-unknown ."
+    "prettify": "prettier --cache --write .",
+    "start": "next start"
   },
   "dependencies": {
     "next": "14.2.2",
@@ -21,7 +21,10 @@
     "@types/react-dom": "^18",
     "eslint": "^8",
     "eslint-config-next": "14.2.2",
+    "husky": "^9.0.11",
+    "lint-staged": "^15.2.2",
     "prettier": "^3.2.5",
+    "sort-package-json": "^2.10.0",
     "typescript": "^5"
   }
 }
