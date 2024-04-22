@@ -88,7 +88,7 @@ export default function Page() {
               },
             })}
           >
-            <strong>Welcome to Acme.</strong> This is the example for the{" "}
+            <strong>都道府県</strong> 別の人口を表示するよ！{" "}
             <a
               href="https://nextjs.org/learn/"
               css={css({
