@@ -29,7 +29,7 @@ export default function AcmeLogo() {
           fontSize: "2.75rem",
         })}
       >
-        PopTrack
+        PopuTrack
       </p>
     </div>
   );
