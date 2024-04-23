@@ -11,5 +11,6 @@
     "**/node_modules/**": true,
     "**/temp/**": true,
     "**/tmp/**": true
-  }
+  },
+  "editor.tabSize": 2
 }
