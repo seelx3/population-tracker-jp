@@ -4,6 +4,8 @@ import PopTrackLogo from "@/app/ui/pop-track-logo";
 
 /** @jsxImportSource @emotion/react */
 import { css } from "@emotion/react";
+import { ChartPane } from "./ChartPane";
+import { CheckBoxPane } from "./CheckBoxPane";
 
 const blue = "rgb(59 130 246)";
 const gray = "rgb(249 250 251)";
@@ -27,7 +29,6 @@ const styles = {
   checkbox: css({
     borderRadius: "0.5rem",
     backgroundColor: gray,
-    height: "4rem",
     marginTop: "1rem",
     padding: "1rem",
   }),
@@ -47,10 +48,10 @@ export default function Page() {
         <PopTrackLogo />
       </div>
       <div css={styles.checkbox}>
-        <p>TODO: add checkbox</p>
+        <CheckBoxPane />
       </div>
       <div css={styles.charPane}>
-        <p>TODO: add chart</p>
+        <ChartPane />
       </div>
     </main>
   );
