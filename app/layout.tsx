@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { inter } from "@/app/ui/fonts";
+import { inter, notoSansJP } from "@/app/ui/fonts";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -12,8 +12,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body className={inter.className}>{children}</body>
+    <html lang="ja">
+      <body className={`${inter.className} ${notoSansJP.className}`}>
+        {children}
+      </body>
     </html>
   );
 }
