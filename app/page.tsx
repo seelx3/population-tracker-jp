@@ -5,7 +5,7 @@ import PopTrackLogo from "@/app/ui/pop-track-logo";
 /** @jsxImportSource @emotion/react */
 import { css } from "@emotion/react";
 import { ChartPane } from "./ChartPane";
-import { CheckBoxPane } from "./CheckBoxPane";
+import CheckBoxPane from "./CheckBoxPane";
 
 const blue = "rgb(59 130 246)";
 const gray = "rgb(249 250 251)";
