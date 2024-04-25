@@ -1,31 +1,23 @@
-import axios from "axios";
-import React, { useEffect } from "react";
-
-const RESAS_PREFECTURES_API_URL =
-  "https://opendata.resas-portal.go.jp/api/v1/prefectures";
+import { useEffect, useState } from "react";
 
 type Prefectures = {
   prefCode: number;
   prefName: string;
 };
 
-export const CheckBoxPane: React.FC = () => {
-  const [prefectures, setPrefectures] = React.useState<Prefectures[]>([]);
-
+export default function CheckBoxPane() {
+  const [prefectures, setPrefectures] = useState<Prefectures[]>([]);
   useEffect(() => {
-    axios
-      .get(RESAS_PREFECTURES_API_URL, {
-        headers: {
-          "X-API-KEY": process.env.NEXT_PUBLIC_RESAS_API_KEY,
-        },
-      })
-      .then((response) => {
-        setPrefectures(response.data.result);
-      })
-      .catch((error) => {
-        console.error("Error fetching prefectures:", error);
-      });
+    const fetchPrefectures = async () => {
+      const res = await fetch("./api/prefectures").then((res) => res.json());
+      setPrefectures(res.data.result);
+    };
+    fetchPrefectures();
   }, []);
+
+  if (prefectures.length === 0) {
+    return <>Loading...</>;
+  }
 
   return (
     <div style={{ display: "flex", flexWrap: "wrap", overflowX: "auto" }}>
@@ -37,4 +29,4 @@ export const CheckBoxPane: React.FC = () => {
       ))}
     </div>
   );
-};
+}
