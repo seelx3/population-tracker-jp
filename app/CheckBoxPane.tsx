@@ -1,23 +1,20 @@
-import { useEffect, useState } from "react";
+const RESAS_PREFECTURES_API_URL =
+  "https://opendata.resas-portal.go.jp/api/v1/prefectures";
 
 type Prefectures = {
   prefCode: number;
   prefName: string;
 };
 
-export default function CheckBoxPane() {
-  const [prefectures, setPrefectures] = useState<Prefectures[]>([]);
-  useEffect(() => {
-    const fetchPrefectures = async () => {
-      const res = await fetch("./api/prefectures").then((res) => res.json());
-      setPrefectures(res.data.result);
-    };
-    fetchPrefectures();
-  }, []);
+export default async function CheckBoxPane() {
+  const data = await fetch(RESAS_PREFECTURES_API_URL, {
+    method: "GET",
+    headers: {
+      "X-API-KEY": process.env.RESAS_API_KEY || "",
+    },
+  }).then((res) => res.json());
 
-  if (prefectures.length === 0) {
-    return <>Loading...</>;
-  }
+  const prefectures = data.result as Prefectures[];
 
   return (
     <div style={{ display: "flex", flexWrap: "wrap", overflowX: "auto" }}>
