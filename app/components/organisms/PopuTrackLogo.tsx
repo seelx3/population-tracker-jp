@@ -1,5 +1,5 @@
-import { ChartBarIcon } from "@heroicons/react/24/outline";
 import { lusitana } from "@/app/ui/fonts";
+import { ChartBarIcon } from "@heroicons/react/24/outline";
 
 export function PopuTrackLogo() {
   return (

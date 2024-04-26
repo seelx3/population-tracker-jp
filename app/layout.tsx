@@ -1,5 +1,5 @@
-import type { Metadata } from "next";
 import { inter, notoSansJP } from "@/app/ui/fonts";
+import type { Metadata } from "next";
 
 import "sanitize.css";
 
