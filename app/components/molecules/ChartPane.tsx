@@ -1,9 +1,9 @@
 "use client";
 
-export const ChartPane: React.FC = () => {
+export function ChartPane() {
   return (
     <div>
       <p>TODO: add chart</p>
     </div>
   );
-};
+}

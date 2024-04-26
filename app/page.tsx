@@ -1,7 +1,7 @@
-import PopuTrackLogo from "@/app/ui/popu-track-logo";
-
 import styles from "./styles.module.css";
-import PopuTrackPane from "./components/organisms/PopuTrackPane";
+
+import { PopuTrackLogo } from "@/app/ui/popu-track-logo";
+import { PopuTrackPane } from "./components/organisms/PopuTrackPane";
 
 const RESAS_PREFECTURES_API_URL =
   "https://opendata.resas-portal.go.jp/api/v1/prefectures";

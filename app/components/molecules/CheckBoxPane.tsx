@@ -9,7 +9,7 @@ interface Props {
   prefectures: Prefectures[];
 }
 
-export const CheckBoxPane: React.FC<Props> = ({ prefectures }) => {
+export function CheckBoxPane({ prefectures }: Props) {
   return (
     <div style={{ display: "flex", flexWrap: "wrap", overflowX: "auto" }}>
       {prefectures.map((prefecture) => (
@@ -20,4 +20,4 @@ export const CheckBoxPane: React.FC<Props> = ({ prefectures }) => {
       ))}
     </div>
   );
-};
+}

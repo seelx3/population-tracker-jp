@@ -14,7 +14,7 @@ interface Props {
   prefectures: Prefectures[];
 }
 
-export default function PopuTrackPane({ prefectures }: Props) {
+export function PopuTrackPane({ prefectures }: Props) {
   return (
     <>
       <div className={styles.checkbox}>
