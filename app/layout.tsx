@@ -4,7 +4,7 @@ import type { Metadata } from "next";
 import "sanitize.css";
 
 export const metadata: Metadata = {
-  title: "PopuTrack",
+  title: "都道府県別人口推移",
   description: "Population tracker for Japan",
 };
 

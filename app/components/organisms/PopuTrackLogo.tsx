@@ -9,18 +9,18 @@ export function PopuTrackLogo() {
         display: "flex",
         flexDirection: "row",
         alignItems: "center",
-        gap: "1rem",
+        gap: "0.5rem",
         lineHeight: 1,
         color: "white",
       }}
     >
       <ChartBarIcon
         style={{
-          height: "3rem",
-          width: "3rem",
+          height: "1.5rem",
+          width: "1.5rem",
         }}
       />
-      <p style={{ margin: 0, fontSize: "2.75rem" }}>PopuTrack</p>
+      <p style={{ fontSize: "1.5rem" }}>都道府県別人口推移</p>
     </div>
   );
 }
