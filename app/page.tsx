@@ -1,15 +1,12 @@
-import styles from "./styles.module.css";
+import styles from "@/app/styles/styles.module.css";
 
-import { PopuTrackLogo } from "@/app/ui/popu-track-logo";
+import { PopuTrackLogo } from "./components/organisms/PopuTrackLogo";
 import { PopuTrackPane } from "./components/organisms/PopuTrackPane";
+
+import { Prefectures } from "@/app/types";
 
 const RESAS_PREFECTURES_API_URL =
   "https://opendata.resas-portal.go.jp/api/v1/prefectures";
-
-type Prefectures = {
-  prefCode: number;
-  prefName: string;
-};
 
 export default async function Page() {
   const data = await fetch(RESAS_PREFECTURES_API_URL, {

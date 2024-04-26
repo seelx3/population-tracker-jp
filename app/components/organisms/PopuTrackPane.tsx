@@ -2,13 +2,9 @@
 
 import { ChartPane } from "../molecules/ChartPane";
 import { CheckBoxPane } from "../molecules/CheckBoxPane";
+import { Prefectures } from "@/app/types";
 
-import styles from "@/app/styles.module.css";
-
-type Prefectures = {
-  prefCode: number;
-  prefName: string;
-};
+import styles from "@/app/styles/styles.module.css";
 
 interface Props {
   prefectures: Prefectures[];
