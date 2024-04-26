@@ -1,22 +1,32 @@
-import PopTrackLogo from "@/app/ui/popu-track-logo";
-
-import { ChartPane } from "./ChartPane";
-import CheckBoxPane from "./CheckBoxPane";
+import PopuTrackLogo from "@/app/ui/popu-track-logo";
 
 import styles from "./styles.module.css";
+import PopuTrackPane from "./components/organisms/PopuTrackPane";
+
+const RESAS_PREFECTURES_API_URL =
+  "https://opendata.resas-portal.go.jp/api/v1/prefectures";
+
+type Prefectures = {
+  prefCode: number;
+  prefName: string;
+};
 
 export default async function Page() {
+  const data = await fetch(RESAS_PREFECTURES_API_URL, {
+    method: "GET",
+    headers: {
+      "X-API-KEY": process.env.RESAS_API_KEY || "",
+    },
+  }).then((res) => res.json());
+
+  const prefectures = data.result as Prefectures[];
+
   return (
     <main className={styles.main}>
       <div className={styles.header}>
-        <PopTrackLogo />
+        <PopuTrackLogo />
       </div>
-      <div className={styles.checkbox}>
-        <CheckBoxPane />
-      </div>
-      <div className={styles.charPane}>
-        <ChartPane />
-      </div>
+      <PopuTrackPane prefectures={prefectures} />
     </main>
   );
 }
