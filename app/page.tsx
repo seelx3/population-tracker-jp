@@ -25,6 +25,7 @@ type RESASPopulationComposition = {
       data: {
         year: number;
         value: number;
+        rate: number;
       }[];
     }[];
   };
@@ -65,7 +66,22 @@ export default async function Page() {
         prefName: prefecture.prefName,
         boundaryYear:
           prefecturesPopulationCompositionData[index].result.boundaryYear,
-        data: prefecturesPopulationCompositionData[index].result.data,
+        totalPopulationData:
+          prefecturesPopulationCompositionData[index].result.data.find(
+            (data) => data.label === "総人口",
+          )?.data || [],
+        youngPopulationData:
+          prefecturesPopulationCompositionData[index].result.data.find(
+            (data) => data.label === "年少人口",
+          )?.data || [],
+        workingAgePopulationData:
+          prefecturesPopulationCompositionData[index].result.data.find(
+            (data) => data.label === "生産年齢人口",
+          )?.data || [],
+        elderlyPopulationData:
+          prefecturesPopulationCompositionData[index].result.data.find(
+            (data) => data.label === "老年人口",
+          )?.data || [],
       };
     });
 

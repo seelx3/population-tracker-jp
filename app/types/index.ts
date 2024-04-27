@@ -3,15 +3,18 @@ export type Prefectures = {
   prefName: string;
 };
 
+type PopulationData = {
+  year: number;
+  value: number;
+  rate: number;
+};
+
 export type PrefectureWithPopulationComposition = {
   prefCode: number;
   prefName: string;
   boundaryYear: number;
-  data: {
-    label: string;
-    data: {
-      year: number;
-      value: number;
-    }[];
-  }[];
+  totalPopulationData: PopulationData[];
+  youngPopulationData: PopulationData[];
+  workingAgePopulationData: PopulationData[];
+  elderlyPopulationData: PopulationData[];
 };

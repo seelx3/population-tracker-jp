@@ -5,7 +5,7 @@ import { ChartPane } from "../molecules/ChartPane";
 import { CheckBoxPane } from "../molecules/CheckBoxPane";
 
 import styles from "@/app/styles/styles.module.css";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 interface Props {
   prefectures: Prefectures[];
@@ -27,10 +27,6 @@ export function PopuTrackPane({
     }
   };
 
-  useEffect(() => {
-    console.log(checkedPrefectures);
-  }, [checkedPrefectures]);
-
   return (
     <>
       <div className={styles.checkbox}>
@@ -41,6 +37,7 @@ export function PopuTrackPane({
       </div>
       <div className={styles.chartPane}>
         <ChartPane
+          checkedPrefectures={checkedPrefectures}
           prefecturesPopulationCompositionData={
             prefecturesPopulationCompositionData
           }
