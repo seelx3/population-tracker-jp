@@ -3,7 +3,7 @@ export type Prefectures = {
   prefName: string;
 };
 
-type PopulationData = {
+export type PopulationData = {
   year: number;
   value: number;
   rate: number;
