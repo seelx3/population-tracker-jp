@@ -9,6 +9,11 @@ export type PopulationData = {
   rate: number;
 };
 
+export type PopulationDataList = {
+  prefName: string;
+  populationData: PopulationData[];
+}[];
+
 export type PrefectureWithPopulationComposition = {
   prefCode: number;
   prefName: string;
