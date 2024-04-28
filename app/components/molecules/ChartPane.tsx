@@ -7,6 +7,12 @@ import {
   PopulationData,
   PrefectureWithPopulationComposition,
 } from "@/app/types";
+import { useEffect, useState } from "react";
+
+type PopulationDataList = {
+  prefName: string;
+  populationData: PopulationData[];
+}[];
 
 interface Props {
   checkedPrefectures: number[];
@@ -14,25 +20,25 @@ interface Props {
 }
 
 function Graph({
-  prefName,
-  populationData,
+  populationDataList,
 }: {
-  prefName: string;
-  populationData: PopulationData[];
+  populationDataList: PopulationDataList;
 }) {
   const series: Highcharts.SeriesOptionsType[] = [];
   const categories: string[] = [];
-  const traceData: number[] = [];
 
-  populationData.forEach((data) => {
-    categories.push(data.year.toString());
-    traceData.push(data.value);
-  });
+  populationDataList.forEach((data) => {
+    const traceData: number[] = [];
+    data.populationData.forEach((populationData) => {
+      categories.push(populationData.year.toString());
+      traceData.push(populationData.value);
+    });
 
-  series.push({
-    type: "line",
-    name: prefName,
-    data: traceData,
+    series.push({
+      type: "line",
+      name: data.prefName,
+      data: traceData,
+    });
   });
 
   const options: Highcharts.Options = {
@@ -60,14 +66,30 @@ export function ChartPane({
   checkedPrefectures,
   prefecturesPopulationCompositionData,
 }: Props) {
-  return (
-    <div>
-      <Graph
-        prefName="北海道"
-        populationData={
-          prefecturesPopulationCompositionData[0].totalPopulationData
-        }
-      />
-    </div>
-  );
+  const [
+    checkedPrefecturesPopulationDataList,
+    setCheckedPrefecturesPopulationDataList,
+  ] = useState<PopulationDataList>([]);
+
+  useEffect(() => {
+    const checkedPrefecturesPopulationDataList: PopulationDataList = [];
+    checkedPrefectures.forEach((checkedIdx) => {
+      const prefCode = checkedIdx + 1;
+      const prefecture = prefecturesPopulationCompositionData.find(
+        (data) => data.prefCode === prefCode,
+      );
+      if (prefecture) {
+        checkedPrefecturesPopulationDataList.push({
+          prefName: prefecture.prefName,
+          populationData: prefecture.totalPopulationData,
+        });
+      }
+    });
+    setCheckedPrefecturesPopulationDataList(
+      checkedPrefecturesPopulationDataList,
+    );
+    console.log(checkedPrefecturesPopulationDataList);
+  }, [checkedPrefectures, prefecturesPopulationCompositionData]);
+
+  return <Graph populationDataList={checkedPrefecturesPopulationDataList} />;
 }
