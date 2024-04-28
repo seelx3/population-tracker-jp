@@ -20,6 +20,6 @@ export type PrefectureWithPopulationComposition = {
   boundaryYear: number;
   totalPopulationData: PopulationData[];
   youngPopulationData: PopulationData[];
-  workingAgePopulationData: PopulationData[];
+  productivePopulationData: PopulationData[];
   elderlyPopulationData: PopulationData[];
 };

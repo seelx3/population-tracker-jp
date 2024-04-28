@@ -59,7 +59,7 @@ export function ChartPane({
               : activeKey === "young"
                 ? prefecture.youngPopulationData
                 : activeKey === "productive"
-                  ? prefecture.workingAgePopulationData
+                  ? prefecture.productivePopulationData
                   : activeKey === "elderly"
                     ? prefecture.elderlyPopulationData
                     : [],

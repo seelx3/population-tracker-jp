@@ -13,7 +13,7 @@ const RESAS_POPULATION_COMPOSITION_API_URL =
 
 const POPULATION_TOTAL = "総人口";
 const POPULATION_YOUNG = "年少人口";
-const POPULATION_WORKING_AGE = "生産年齢人口";
+const POPULATION_PRODUCTIVE = "生産年齢人口";
 const POPULATION_ELDERLY = "老年人口";
 
 type RESASPrefectures = {
@@ -79,9 +79,9 @@ export default async function Page() {
           prefecturesPopulationCompositionData[index].result.data.find(
             (data) => data.label === POPULATION_YOUNG,
           )?.data || [],
-        workingAgePopulationData:
+        productivePopulationData:
           prefecturesPopulationCompositionData[index].result.data.find(
-            (data) => data.label === POPULATION_WORKING_AGE,
+            (data) => data.label === POPULATION_PRODUCTIVE,
           )?.data || [],
         elderlyPopulationData:
           prefecturesPopulationCompositionData[index].result.data.find(
