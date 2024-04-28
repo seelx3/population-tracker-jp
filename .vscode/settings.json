@@ -12,5 +12,6 @@
     "**/temp/**": true,
     "**/tmp/**": true
   },
-  "editor.tabSize": 2
+  "editor.tabSize": 2,
+  "prettier.trailingComma": "all"
 }
