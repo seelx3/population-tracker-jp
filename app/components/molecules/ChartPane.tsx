@@ -62,6 +62,25 @@ function Graph({
   return <HighchartsReact highcharts={Highcharts} options={options} />;
 }
 
+const contents = [
+  {
+    key: "total",
+    label: "総人口",
+  },
+  {
+    key: "young",
+    label: "年少人口",
+  },
+  {
+    key: "productive",
+    label: "生産年齢人口",
+  },
+  {
+    key: "elderly",
+    label: "老年人口",
+  },
+];
+
 export function ChartPane({
   checkedPrefectures,
   prefecturesPopulationCompositionData,
@@ -70,6 +89,8 @@ export function ChartPane({
     checkedPrefecturesPopulationDataList,
     setCheckedPrefecturesPopulationDataList,
   ] = useState<PopulationDataList>([]);
+
+  const [activeKey, setActiveKey] = useState<string>("total");
 
   useEffect(() => {
     const checkedPrefecturesPopulationDataList: PopulationDataList = [];
@@ -81,14 +102,64 @@ export function ChartPane({
       if (prefecture) {
         checkedPrefecturesPopulationDataList.push({
           prefName: prefecture.prefName,
-          populationData: prefecture.totalPopulationData,
+          populationData:
+            activeKey === "total"
+              ? prefecture.totalPopulationData
+              : activeKey === "young"
+                ? prefecture.youngPopulationData
+                : activeKey === "productive"
+                  ? prefecture.workingAgePopulationData
+                  : activeKey === "elderly"
+                    ? prefecture.elderlyPopulationData
+                    : [],
         });
       }
     });
     setCheckedPrefecturesPopulationDataList(
       checkedPrefecturesPopulationDataList,
     );
-  }, [checkedPrefectures, prefecturesPopulationCompositionData]);
+  }, [activeKey, checkedPrefectures, prefecturesPopulationCompositionData]);
 
-  return <Graph populationDataList={checkedPrefecturesPopulationDataList} />;
+  return (
+    <>
+      <ul
+        style={{
+          display: "flex",
+          listStyle: "none",
+          margin: 0,
+          padding: 0,
+        }}
+      >
+        {contents.map((content) => (
+          <li
+            key={content.key}
+            style={{
+              margin: 0,
+              padding: 0,
+            }}
+          >
+            <button
+              style={{
+                border: "none",
+                cursor: "pointer",
+                padding: "0.5rem",
+                borderLeft:
+                  activeKey === content.key ? "1px solid gray" : "0px",
+                borderTop: activeKey === content.key ? "1px solid gray" : "0px",
+                borderRight:
+                  activeKey === content.key ? "1px solid gray" : "0px",
+                borderBottom:
+                  activeKey === content.key ? "0px" : "1px solid gray",
+                backgroundColor: "white",
+              }}
+              onClick={() => setActiveKey(content.key)}
+            >
+              {content.label}
+            </button>
+          </li>
+        ))}
+      </ul>
+      <Graph populationDataList={checkedPrefecturesPopulationDataList} />
+    </>
+  );
 }
