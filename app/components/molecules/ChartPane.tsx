@@ -88,7 +88,6 @@ export function ChartPane({
     setCheckedPrefecturesPopulationDataList(
       checkedPrefecturesPopulationDataList,
     );
-    console.log(checkedPrefecturesPopulationDataList);
   }, [checkedPrefectures, prefecturesPopulationCompositionData]);
 
   return <Graph populationDataList={checkedPrefecturesPopulationDataList} />;

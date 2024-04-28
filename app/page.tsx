@@ -11,6 +11,11 @@ const RESAS_PREFECTURES_API_URL =
 const RESAS_POPULATION_COMPOSITION_API_URL =
   "https://opendata.resas-portal.go.jp/api/v1/population/composition/perYear";
 
+const POPULATION_TOTAL = "総人口";
+const POPULATION_YOUNG = "年少人口";
+const POPULATION_WORKING_AGE = "生産年齢人口";
+const POPULATION_ELDERLY = "老年人口";
+
 type RESASPrefectures = {
   message: string;
   result: Prefectures[];
@@ -68,19 +73,19 @@ export default async function Page() {
           prefecturesPopulationCompositionData[index].result.boundaryYear,
         totalPopulationData:
           prefecturesPopulationCompositionData[index].result.data.find(
-            (data) => data.label === "総人口",
+            (data) => data.label === POPULATION_TOTAL,
           )?.data || [],
         youngPopulationData:
           prefecturesPopulationCompositionData[index].result.data.find(
-            (data) => data.label === "年少人口",
+            (data) => data.label === POPULATION_YOUNG,
           )?.data || [],
         workingAgePopulationData:
           prefecturesPopulationCompositionData[index].result.data.find(
-            (data) => data.label === "生産年齢人口",
+            (data) => data.label === POPULATION_WORKING_AGE,
           )?.data || [],
         elderlyPopulationData:
           prefecturesPopulationCompositionData[index].result.data.find(
-            (data) => data.label === "老年人口",
+            (data) => data.label === POPULATION_ELDERLY,
           )?.data || [],
       };
     });
