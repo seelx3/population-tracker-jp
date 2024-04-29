@@ -4,6 +4,11 @@ import { PopulationDataList } from "@/app/types";
 
 import Highcharts from "highcharts";
 import HighchartsReact from "highcharts-react-official";
+import Accessibility from "highcharts/modules/accessibility";
+
+if (typeof Highcharts === "object") {
+  Accessibility(Highcharts);
+}
 
 export function Graph({
   populationDataList,
@@ -43,6 +48,9 @@ export function Graph({
       },
     },
     series,
+    accessibility: {
+      description: "都道府県別の人口推移を示すグラフ",
+    },
   };
 
   return <HighchartsReact highcharts={Highcharts} options={options} />;
