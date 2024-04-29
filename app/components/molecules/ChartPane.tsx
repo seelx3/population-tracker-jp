@@ -1,5 +1,7 @@
 "use client";
 
+import style from "@/app/styles/styles.module.css";
+
 import {
   PopulationDataList,
   PrefectureWithPopulationComposition,
@@ -73,27 +75,12 @@ export function ChartPane({
 
   return (
     <>
-      <ul
-        style={{
-          display: "flex",
-          listStyle: "none",
-          margin: 0,
-          padding: 0,
-        }}
-      >
+      <ul className={style.chartTabUl}>
         {contents.map((content) => (
-          <li
-            key={content.key}
-            style={{
-              margin: 0,
-              padding: 0,
-            }}
-          >
+          <li key={content.key} className={style.chartTabLi}>
             <button
+              className={style.chartTabButton}
               style={{
-                border: "none",
-                cursor: "pointer",
-                padding: "0.5rem",
                 borderLeft:
                   activeKey === content.key ? "1px solid gray" : "0px",
                 borderTop: activeKey === content.key ? "1px solid gray" : "0px",
