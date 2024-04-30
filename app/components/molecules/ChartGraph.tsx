@@ -46,6 +46,11 @@ export function Graph({
       title: {
         text: "人口数",
       },
+      labels: {
+        formatter: function () {
+          return Number(this.value) / 10000 + "万";
+        },
+      },
     },
     series,
     accessibility: {
