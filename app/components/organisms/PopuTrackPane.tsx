@@ -29,12 +29,14 @@ export function PopuTrackPane({
 
   return (
     <>
+      <h3>都道府県</h3>
       <div className={styles.checkboxContainer}>
         <CheckBoxPane
           prefectures={prefectures}
           checkboxHandler={checkboxHandler}
         />
       </div>
+      <h3>人口推移</h3>
       <div className={styles.chartPaneContainer}>
         <ChartPane
           checkedPrefectures={checkedPrefectures}
