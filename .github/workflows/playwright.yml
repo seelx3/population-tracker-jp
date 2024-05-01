@@ -1,9 +1,5 @@
 name: Playwright Tests
-on:
-  push:
-    branches: [main, master]
-  pull_request:
-    branches: [main, master]
+on: push
 jobs:
   test:
     timeout-minutes: 60
@@ -18,7 +14,7 @@ jobs:
       - name: Install Playwright Browsers
         run: yarn playwright install --with-deps
       - name: Run Playwright tests
-        run: yarn playwright test
+        run: yarn test-e2e:chromium
       - uses: actions/upload-artifact@v4
         if: always()
         with:

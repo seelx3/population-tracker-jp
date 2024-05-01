@@ -13,5 +13,8 @@
     "**/tmp/**": true
   },
   "editor.tabSize": 2,
-  "prettier.trailingComma": "all"
+  "prettier.trailingComma": "all",
+  "[jsonc]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  }
 }
