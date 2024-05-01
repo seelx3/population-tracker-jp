@@ -8,6 +8,15 @@
   color: white;
 }
 
+.popuTrackLogoIcon {
+  height: 1.5rem;
+  width: 1.5rem;
+}
+
+.popuTrackLogoText {
+  font-size: 1.5rem;
+}
+
 /* page */
 .main {
   display: flex;
