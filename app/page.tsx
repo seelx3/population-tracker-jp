@@ -106,6 +106,9 @@ export default async function Page() {
             prefecturesWithPopulationComposition
           }
         />
+        <footer className={styles.footer}>
+          <p>&copy;2024 seelx3</p>
+        </footer>
       </div>
     </main>
   );
