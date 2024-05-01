@@ -8,7 +8,7 @@ import {
 } from "@/app/types";
 import { useEffect, useState } from "react";
 
-import { Graph } from "@/app/components/molecules/ChartGraph";
+import { PopulationChart } from "@/app/components/molecules/PopulationChart";
 
 interface Props {
   checkedPrefectures: number[];
@@ -97,7 +97,9 @@ export function ChartPane({
           </li>
         ))}
       </ul>
-      <Graph populationDataList={checkedPrefecturesPopulationDataList} />
+      <PopulationChart
+        populationDataList={checkedPrefecturesPopulationDataList}
+      />
     </>
   );
 }

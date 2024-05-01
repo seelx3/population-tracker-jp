@@ -10,7 +10,7 @@ if (typeof Highcharts === "object") {
   Accessibility(Highcharts);
 }
 
-export function Graph({
+export function PopulationChart({
   populationDataList,
 }: {
   populationDataList: PopulationDataList;
