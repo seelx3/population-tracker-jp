@@ -1,5 +1,7 @@
 "use client";
 
+import style from "@/app/styles/styles.module.css";
+
 type Prefectures = {
   prefCode: number;
   prefName: string;
@@ -12,9 +14,9 @@ interface Props {
 
 export function CheckBoxPane({ prefectures, checkboxHandler }: Props) {
   return (
-    <div style={{ display: "flex", flexWrap: "wrap", overflowX: "auto" }}>
+    <div className={style.checkbox}>
       {prefectures.map((prefecture, idx) => (
-        <div key={prefecture.prefCode} style={{ width: "5.5rem" }}>
+        <div key={prefecture.prefCode} className={style.checkboxItem}>
           <input
             type="checkbox"
             id={prefecture.prefName}
@@ -22,7 +24,9 @@ export function CheckBoxPane({ prefectures, checkboxHandler }: Props) {
               checkboxHandler(idx);
             }}
           />
-          <label htmlFor={prefecture.prefName}>{prefecture.prefName}</label>
+          <label htmlFor={prefecture.prefName} className={style.checkboxLabel}>
+            {prefecture.prefName}
+          </label>
         </div>
       ))}
     </div>

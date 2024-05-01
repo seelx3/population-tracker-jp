@@ -1,0 +1,26 @@
+.chartTabUl {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.chartTabLi {
+  margin: 0;
+  padding: 0;
+}
+
+.chartTabButton {
+  border: none;
+  cursor: pointer;
+  padding: 0.5rem;
+  background-color: white;
+}
+
+.chartTabButton:hover {
+  border: none;
+  cursor: pointer;
+  padding: 0.5rem;
+  transition: 0.3s;
+  filter: brightness(0.95);
+}

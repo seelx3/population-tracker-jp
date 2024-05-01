@@ -1,6 +1,6 @@
 "use client";
 
-import style from "@/app/styles/styles.module.css";
+import style from "@/app/styles/chartPane.module.css";
 
 import {
   PopulationDataList,
@@ -79,17 +79,18 @@ export function ChartPane({
         {contents.map((content) => (
           <li key={content.key} className={style.chartTabLi}>
             <button
-              className={style.chartTabButton}
-              style={{
-                borderLeft:
-                  activeKey === content.key ? "1px solid gray" : "0px",
-                borderTop: activeKey === content.key ? "1px solid gray" : "0px",
-                borderRight:
-                  activeKey === content.key ? "1px solid gray" : "0px",
-                borderBottom:
-                  activeKey === content.key ? "0px" : "1px solid gray",
-                backgroundColor: "white",
-              }}
+              className={`${style.chartTabButton}`}
+              style={
+                activeKey === content.key
+                  ? {
+                      border: "1px solid gray",
+                      borderBottom: "0px",
+                    }
+                  : {
+                      border: "0px",
+                      borderBottom: "1px solid gray",
+                    }
+              }
               onClick={() => setActiveKey(content.key)}
             >
               {content.label}

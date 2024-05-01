@@ -29,13 +29,13 @@ export function PopuTrackPane({
 
   return (
     <>
-      <div className={styles.checkbox}>
+      <div className={styles.checkboxContainer}>
         <CheckBoxPane
           prefectures={prefectures}
           checkboxHandler={checkboxHandler}
         />
       </div>
-      <div className={styles.chartPane}>
+      <div className={styles.chartPaneContainer}>
         <ChartPane
           checkedPrefectures={checkedPrefectures}
           prefecturesPopulationCompositionData={

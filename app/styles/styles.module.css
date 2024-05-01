@@ -1,3 +1,4 @@
+/* PopuTrackLogo */
 .popuTrackLogo {
   display: flex;
   flex-direction: row;
@@ -7,6 +8,7 @@
   color: white;
 }
 
+/* page */
 .main {
   display: flex;
   flex-direction: column;
@@ -24,42 +26,32 @@
   padding: 1rem;
 }
 
+/* PopuTrackPane.tsx */
+.checkboxContainer {
+  border-radius: 0.5rem;
+  background-color: rgb(249 250 251);
+  margin-top: 1rem;
+  padding: 1rem;
+}
+
+.chartPaneContainer {
+  border-radius: 0.5rem;
+  background-color: rgb(249 250 251);
+  margin-top: 1rem;
+  padding: 1rem;
+}
+
+/* CheckboxPane */
 .checkbox {
-  border-radius: 0.5rem;
-  background-color: rgb(249 250 251);
-  margin-top: 1rem;
-  padding: 1rem;
-}
-
-.chartPane {
-  border-radius: 0.5rem;
-  background-color: rgb(249 250 251);
-  margin-top: 1rem;
-  padding: 1rem;
-}
-
-.chartTabUl {
   display: flex;
-  list-style: none;
-  margin: 0;
-  padding: 0;
+  flex-wrap: wrap;
+  overflow-x: auto;
 }
 
-.chartTabLi {
-  margin: 0;
-  padding: 0;
+.checkboxItem {
+  width: 5.5rem;
 }
 
-.chartTabButton {
-  border: none;
-  cursor: pointer;
-  padding: 0.5rem;
-}
-
-.chartTabButton:hover {
-  border: none;
-  cursor: pointer;
-  padding: 0.5rem;
-  transition: 0.3s;
-  filter: brightness(0.95);
+.checkboxLabel {
+  margin-left: 0.2rem;
 }
