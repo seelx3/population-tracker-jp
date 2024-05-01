@@ -1,84 +1,37 @@
-/* PopuTrackLogo */
-.popuTrackLogo {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  gap: 0.5rem;
-  line-height: 1;
-  color: white;
-}
-
-.popuTrackLogoIcon {
-  height: 1.5rem;
-  width: 1.5rem;
-}
-
-.popuTrackLogoText {
-  font-size: 1.5rem;
-}
-
 /* page */
 .main {
-  display: flex;
   align-items: center;
+  display: flex;
   justify-content: center;
 }
 
 .mainContainer {
   display: flex;
   flex-direction: column;
+  max-width: 60rem;
   min-height: 100vh;
   padding: 1.5rem;
-  max-width: 60rem;
   width: 100%;
 }
 
 .header {
+  align-items: center;
+  background-color: rgb(59 130 246);
+  border-radius: 0.5rem;
   display: flex;
   flex-grow: 0;
   height: 4rem;
-  align-items: center;
-  border-radius: 0.5rem;
-  background-color: rgb(59 130 246);
   padding: 1rem;
 }
 
 .footer {
-  display: flex;
-  flex-grow: 0;
-  height: 4rem;
   align-items: center;
-  justify-content: center;
-  margin-top: 4rem;
   border-top: 1px solid rgb(230 231 232);
   color: rgb(200 201 202);
-  font-size: 0.8rem;
-}
-
-/* PopuTrackPane.tsx */
-.checkboxContainer {
-  border-radius: 0.5rem;
-  background-color: rgb(249 250 251);
-  padding: 1rem;
-}
-
-.chartPaneContainer {
-  border-radius: 0.5rem;
-  background-color: rgb(249 250 251);
-  padding: 1rem;
-}
-
-/* CheckboxPane */
-.checkbox {
   display: flex;
-  flex-wrap: wrap;
-  overflow-x: auto;
-}
-
-.checkboxItem {
-  width: 5.5rem;
-}
-
-.checkboxLabel {
-  margin-left: 0.2rem;
+  flex-grow: 0;
+  font-size: 0.8rem;
+  height: 4rem;
+  justify-content: center;
+  margin-top: 4rem;
 }

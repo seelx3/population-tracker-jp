@@ -1,4 +1,4 @@
-import style from "@/app/styles/styles.module.css";
+import style from "@/app/styles/popuTrackLogo.module.css";
 
 import { lusitana } from "@/app/ui/fonts";
 import { ChartBarIcon } from "@heroicons/react/24/outline";

@@ -1,0 +1,17 @@
+.popuTrackLogo {
+  align-items: center;
+  color: white;
+  display: flex;
+  flex-direction: row;
+  gap: 0.5rem;
+  line-height: 1;
+}
+
+.popuTrackLogoIcon {
+  height: 1.5rem;
+  width: 1.5rem;
+}
+
+.popuTrackLogoText {
+  font-size: 1.5rem;
+}

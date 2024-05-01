@@ -4,7 +4,7 @@ import { Prefectures, PrefectureWithPopulationComposition } from "@/app/types";
 import { ChartPane } from "../molecules/ChartPane";
 import { CheckBoxPane } from "../molecules/CheckBoxPane";
 
-import styles from "@/app/styles/styles.module.css";
+import styles from "@/app/styles/popuTrackPane.module.css";
 import { useState } from "react";
 
 interface Props {

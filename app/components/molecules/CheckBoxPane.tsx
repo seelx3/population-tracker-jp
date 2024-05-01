@@ -1,6 +1,6 @@
 "use client";
 
-import style from "@/app/styles/styles.module.css";
+import style from "@/app/styles/checkBoxPane.module.css";
 
 type Prefectures = {
   prefCode: number;
