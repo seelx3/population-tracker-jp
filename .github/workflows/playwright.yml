@@ -13,11 +13,9 @@ jobs:
         run: npm install -g yarn && yarn
       - name: Install Playwright Browsers
         run: yarn playwright install --with-deps
-      - name: Create env file
+      - name: Run Playwright tests
         env:
           RESAS_API_KEY: ${{ secrets.RESAS_API_KEY }}
-        run: echo RESAS_API_KEY=$RESAS_API_KEY >> $GITHUB_ENV
-      - name: Run Playwright tests
         run: yarn test-e2e:chromium
       - uses: actions/upload-artifact@v4
         if: always()
