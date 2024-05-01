@@ -1,6 +1,6 @@
 {
-  "name": "pop-track-pre",
-  "version": "0.1.0",
+  "name": "population-tracker-jp",
+  "version": "1.0.0",
   "private": true,
   "scripts": {
     "build": "next build",
