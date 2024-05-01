@@ -67,6 +67,22 @@ export function PopulationChart({
     accessibility: {
       description: "都道府県別の人口推移を示すグラフ",
     },
+    tooltip: {
+      formatter: function () {
+        return (
+          "<b>" +
+          this.series.name +
+          "</b><br>" +
+          this.x +
+          "年<br>" +
+          (Number(this.y) >= 10000
+            ? Math.floor(Number(this.y) / 10000) + "万"
+            : "") +
+          (Number(this.y) % 10000) +
+          "人"
+        );
+      },
+    },
   };
 
   return <HighchartsReact highcharts={Highcharts} options={options} />;
