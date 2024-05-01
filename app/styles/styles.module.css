@@ -20,9 +20,17 @@
 /* page */
 .main {
   display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.mainContainer {
+  display: flex;
   flex-direction: column;
   min-height: 100vh;
   padding: 1.5rem;
+  max-width: 60rem;
+  width: 100%;
 }
 
 .header {

@@ -96,15 +96,17 @@ export default async function Page() {
 
   return (
     <main className={styles.main}>
-      <div className={styles.header}>
-        <PopuTrackLogo />
+      <div className={styles.mainContainer}>
+        <div className={styles.header}>
+          <PopuTrackLogo />
+        </div>
+        <PopuTrackPane
+          prefectures={prefectures}
+          prefecturesPopulationCompositionData={
+            prefecturesWithPopulationComposition
+          }
+        />
       </div>
-      <PopuTrackPane
-        prefectures={prefectures}
-        prefecturesPopulationCompositionData={
-          prefecturesWithPopulationComposition
-        }
-      />
     </main>
   );
 }
