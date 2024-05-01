@@ -10,7 +10,8 @@
     "lint-fix": "next lint --fix",
     "prepare": "husky",
     "prettify": "prettier --cache --write . --plugin=prettier-plugin-organize-imports",
-    "start": "next start"
+    "start": "next start",
+    "test-e2e:chromium": "playwright test --project=chromium"
   },
   "dependencies": {
     "@emotion/react": "^11.11.4",
@@ -24,6 +25,7 @@
     "sanitize.css": "^13.0.0"
   },
   "devDependencies": {
+    "@playwright/test": "^1.43.1",
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",

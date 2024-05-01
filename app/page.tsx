@@ -37,6 +37,10 @@ type RESASPopulationComposition = {
 };
 
 export default async function Page() {
+  if (!process.env.RESAS_API_KEY) {
+    throw new Error("RESAS_API_KEY is not set.");
+  }
+
   const prefecturesData: RESASPrefectures = await fetch(
     RESAS_PREFECTURES_API_URL,
     {
