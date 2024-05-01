@@ -100,6 +100,7 @@ export function ChartPane({
       </ul>
       <PopulationChart
         populationDataList={checkedPrefecturesPopulationDataList}
+        activeKey={activeKey}
       />
     </>
   );

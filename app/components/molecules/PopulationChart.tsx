@@ -12,8 +12,10 @@ if (typeof Highcharts === "object") {
 
 export function PopulationChart({
   populationDataList,
+  activeKey,
 }: {
   populationDataList: PopulationDataList;
+  activeKey: string;
 }) {
   const series: Highcharts.SeriesOptionsType[] = [];
   const categories: string[] = [];
@@ -34,7 +36,16 @@ export function PopulationChart({
 
   const options: Highcharts.Options = {
     title: {
-      text: "人口推移",
+      text:
+        activeKey === "total"
+          ? "総人口の推移"
+          : activeKey === "young"
+            ? "年少人口の推移"
+            : activeKey === "productive"
+              ? "生産年齢人口の推移"
+              : activeKey === "elderly"
+                ? "老年人口の推移"
+                : "",
     },
     xAxis: {
       title: {
