@@ -1,6 +1,7 @@
 "use client";
 
 import style from "@/app/styles/checkBoxPane.module.css";
+import React from "react";
 
 type Prefectures = {
   prefCode: number;

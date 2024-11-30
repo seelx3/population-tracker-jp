@@ -1,6 +1,7 @@
 "use client";
 
 import style from "@/app/styles/chartPane.module.css";
+import React from "react";
 
 import {
   PopulationDataList,

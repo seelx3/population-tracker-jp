@@ -7,7 +7,7 @@ import {
 } from "@/app/types";
 
 import styles from "@/app/styles/popuTrackPane.module.css";
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { ChartPane } from "../molecules/ChartPane";
 import { CheckBoxPane } from "../molecules/CheckBoxPane";
 

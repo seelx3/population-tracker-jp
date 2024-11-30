@@ -1,4 +1,5 @@
 import styles from "@/app/styles/styles.module.css";
+import React from "react";
 
 import { PopuTrackLogo } from "./components/organisms/PopuTrackLogo";
 import { PopuTrackPane } from "./components/organisms/PopuTrackPane";
