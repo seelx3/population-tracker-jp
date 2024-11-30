@@ -3,13 +3,10 @@
 import style from "@/app/styles/chartPane.module.css";
 import React from "react";
 
-import {
-  PopulationDataList,
-  PrefectureWithPopulationComposition,
-} from "@/app/types";
-import { useEffect, useState } from "react";
+import { PrefectureWithPopulationComposition } from "@/app/types";
 
 import { PopulationChart } from "@/app/components/molecules/PopulationChart";
+import { useActivePopulationCompositionData } from "@/app/hooks/useActivePopulationCompositionData";
 
 const contents = [
   {
@@ -37,30 +34,8 @@ type Props = {
 export const ChartPane: React.FC<Props> = ({
   prefecturesPopulationCompositionData,
 }) => {
-  const [
-    activePrefecturesPopulationDataList,
-    setActivePrefecturesPopulationDataList,
-  ] = useState<PopulationDataList>([]);
-
-  const [activeKey, setActiveKey] = useState<string>("total");
-
-  useEffect(() => {
-    const activePrefecturesPopulationDataList: PopulationDataList =
-      prefecturesPopulationCompositionData.map((prefecture) => ({
-        prefName: prefecture.prefName,
-        populationData:
-          activeKey === "total"
-            ? prefecture.totalPopulationData
-            : activeKey === "young"
-              ? prefecture.youngPopulationData
-              : activeKey === "productive"
-                ? prefecture.productivePopulationData
-                : activeKey === "elderly"
-                  ? prefecture.elderlyPopulationData
-                  : [],
-      }));
-    setActivePrefecturesPopulationDataList(activePrefecturesPopulationDataList);
-  }, [activeKey, prefecturesPopulationCompositionData]);
+  const { activeKey, setActiveKey, activePrefecturesPopulationDataList } =
+    useActivePopulationCompositionData(prefecturesPopulationCompositionData);
 
   return (
     <>
