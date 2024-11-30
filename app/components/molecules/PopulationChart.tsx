@@ -19,22 +19,16 @@ export const PopulationChart: React.FC<Props> = ({
   populationDataList,
   activeKey,
 }) => {
-  const series: Highcharts.SeriesOptionsType[] = [];
-  const categories: string[] = [];
-
-  populationDataList.forEach((data) => {
-    const traceData: number[] = [];
-    data.populationData.forEach((populationData) => {
-      categories.push(populationData.year.toString());
-      traceData.push(populationData.value);
-    });
-
-    series.push({
+  const categories: string[] = populationDataList[0]?.populationData.map(
+    (populationData) => populationData.year.toString(),
+  );
+  const series: Highcharts.SeriesOptionsType[] = populationDataList.map(
+    (data) => ({
       type: "line",
       name: data.prefName,
-      data: traceData,
-    });
-  });
+      data: data.populationData.map((populationData) => populationData.value),
+    }),
+  );
 
   const options: Highcharts.Options = {
     title: {
