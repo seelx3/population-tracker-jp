@@ -1,5 +1,6 @@
 import { inter, notoSansJP } from "@/app/ui/fonts";
 import type { Metadata } from "next";
+import React from "react";
 
 import "sanitize.css";
 
