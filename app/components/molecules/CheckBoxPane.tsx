@@ -10,12 +10,12 @@ type Prefectures = {
 
 type Props = {
   prefectures: Prefectures[];
-  checkboxHandler: (prefIdx: number) => void;
+  updateCheckedPrefectures: (prefIdx: number) => void;
 };
 
 export const CheckBoxPane: React.FC<Props> = ({
   prefectures,
-  checkboxHandler,
+  updateCheckedPrefectures,
 }) => {
   return (
     <div className={style.checkbox}>
@@ -25,7 +25,7 @@ export const CheckBoxPane: React.FC<Props> = ({
             type="checkbox"
             id={prefecture.prefName}
             onChange={() => {
-              checkboxHandler(idx);
+              updateCheckedPrefectures(idx);
             }}
           />
           <label htmlFor={prefecture.prefName} className={style.checkboxLabel}>
