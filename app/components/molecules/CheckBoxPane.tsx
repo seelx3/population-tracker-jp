@@ -24,6 +24,7 @@ export const CheckBoxPane: React.FC<Props> = ({
           <input
             type="checkbox"
             id={prefecture.prefName}
+            className={style.checkboxInput}
             onChange={() => {
               updateCheckedPrefectures(idx);
             }}

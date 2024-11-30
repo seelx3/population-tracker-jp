@@ -8,6 +8,10 @@
   width: 5.5rem;
 }
 
+.checkboxInput:hover {
+  cursor: pointer;
+}
+
 .checkboxLabel {
   margin-left: 0.2rem;
 }
