@@ -24,7 +24,12 @@ export type PrefectureWithPopulationComposition = {
   elderlyPopulationData: PopulationData[];
 };
 
-export type RESASPopulationComposition = {
+export type PrefecturesAPIResponse = {
+  message: string;
+  result: Prefecture[];
+};
+
+export type PopulationCompositionAPIResponse = {
   message: string;
   result: {
     boundaryYear: number;
