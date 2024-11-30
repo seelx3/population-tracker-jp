@@ -1,4 +1,4 @@
-export type Prefectures = {
+export type Prefecture = {
   prefCode: number;
   prefName: string;
 };
@@ -22,4 +22,19 @@ export type PrefectureWithPopulationComposition = {
   youngPopulationData: PopulationData[];
   productivePopulationData: PopulationData[];
   elderlyPopulationData: PopulationData[];
+};
+
+export type RESASPopulationComposition = {
+  message: string;
+  result: {
+    boundaryYear: number;
+    data: {
+      label: string;
+      data: {
+        year: number;
+        value: number;
+        rate: number;
+      }[];
+    }[];
+  };
 };

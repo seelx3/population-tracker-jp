@@ -11,7 +11,6 @@ import { useEffect, useState } from "react";
 import { PopulationChart } from "@/app/components/molecules/PopulationChart";
 
 interface Props {
-  checkedPrefectures: number[];
   prefecturesPopulationCompositionData: PrefectureWithPopulationComposition[];
 }
 
@@ -34,44 +33,31 @@ const contents = [
   },
 ];
 
-export function ChartPane({
-  checkedPrefectures,
-  prefecturesPopulationCompositionData,
-}: Props) {
+export function ChartPane({ prefecturesPopulationCompositionData }: Props) {
   const [
-    checkedPrefecturesPopulationDataList,
-    setCheckedPrefecturesPopulationDataList,
+    activePrefecturesPopulationDataList,
+    setActivePrefecturesPopulationDataList,
   ] = useState<PopulationDataList>([]);
 
   const [activeKey, setActiveKey] = useState<string>("total");
 
   useEffect(() => {
-    const checkedPrefecturesPopulationDataList: PopulationDataList = [];
-    checkedPrefectures.forEach((checkedIdx) => {
-      const prefCode = checkedIdx + 1;
-      const prefecture = prefecturesPopulationCompositionData.find(
-        (data) => data.prefCode === prefCode,
-      );
-      if (prefecture) {
-        checkedPrefecturesPopulationDataList.push({
-          prefName: prefecture.prefName,
-          populationData:
-            activeKey === "total"
-              ? prefecture.totalPopulationData
-              : activeKey === "young"
-                ? prefecture.youngPopulationData
-                : activeKey === "productive"
-                  ? prefecture.productivePopulationData
-                  : activeKey === "elderly"
-                    ? prefecture.elderlyPopulationData
-                    : [],
-        });
-      }
-    });
-    setCheckedPrefecturesPopulationDataList(
-      checkedPrefecturesPopulationDataList,
-    );
-  }, [activeKey, checkedPrefectures, prefecturesPopulationCompositionData]);
+    const activePrefecturesPopulationDataList: PopulationDataList =
+      prefecturesPopulationCompositionData.map((prefecture) => ({
+        prefName: prefecture.prefName,
+        populationData:
+          activeKey === "total"
+            ? prefecture.totalPopulationData
+            : activeKey === "young"
+              ? prefecture.youngPopulationData
+              : activeKey === "productive"
+                ? prefecture.productivePopulationData
+                : activeKey === "elderly"
+                  ? prefecture.elderlyPopulationData
+                  : [],
+      }));
+    setActivePrefecturesPopulationDataList(activePrefecturesPopulationDataList);
+  }, [activeKey, prefecturesPopulationCompositionData]);
 
   return (
     <>
@@ -99,7 +85,7 @@ export function ChartPane({
         ))}
       </ul>
       <PopulationChart
-        populationDataList={checkedPrefecturesPopulationDataList}
+        populationDataList={activePrefecturesPopulationDataList}
         activeKey={activeKey}
       />
     </>
