@@ -25,17 +25,21 @@
     "sanitize.css": "^13.0.0"
   },
   "devDependencies": {
+    "@eslint/js": "^9.16.0",
     "@playwright/test": "^1.43.1",
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",
-    "eslint": "^8",
+    "eslint": "^9.16.0",
     "eslint-config-next": "14.2.2",
+    "eslint-plugin-react": "^7.37.2",
+    "globals": "^15.12.0",
     "husky": "^9.0.11",
     "lint-staged": "^15.2.2",
     "prettier": "^3.2.5",
     "prettier-plugin-organize-imports": "^3.2.4",
     "sort-package-json": "^2.10.0",
-    "typescript": "^5.4.5"
+    "typescript": "^5.4.5",
+    "typescript-eslint": "^8.16.0"
   }
 }
