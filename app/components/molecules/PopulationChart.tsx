@@ -11,6 +11,21 @@ if (typeof Highcharts === "object") {
   Accessibility(Highcharts);
 }
 
+const TEN_THOUSAND = 10000;
+
+const yAxisLabelFormatter = (value: number): string => {
+  return Number(value) / TEN_THOUSAND + "万";
+};
+
+const populationFormatter = (value: number): string => {
+  return (
+    (value >= TEN_THOUSAND
+      ? Math.floor(Number(value) / TEN_THOUSAND) + "万"
+      : "") +
+    (value % TEN_THOUSAND)
+  );
+};
+
 type Props = {
   populationDataList: PopulationDataList;
   activeKey: string;
@@ -56,7 +71,7 @@ export const PopulationChart: React.FC<Props> = ({
       },
       labels: {
         formatter: function () {
-          return Number(this.value) / 10000 + "万";
+          return yAxisLabelFormatter(Number(this.value));
         },
       },
     },
@@ -72,10 +87,7 @@ export const PopulationChart: React.FC<Props> = ({
           "</b><br>" +
           this.x +
           "年<br>" +
-          (Number(this.y) >= 10000
-            ? Math.floor(Number(this.y) / 10000) + "万"
-            : "") +
-          (Number(this.y) % 10000) +
+          populationFormatter(this.y as number) +
           "人"
         );
       },
