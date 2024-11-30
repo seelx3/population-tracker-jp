@@ -46,7 +46,7 @@ async function getPrefecturePopulationCompositionData(
   };
 }
 
-export function PopuTrackPane() {
+export const PopuTrackPane: React.FC = () => {
   const [prefectures, setPrefectures] = useState<Prefecture[]>([]);
   const [checkedPrefectures, setCheckedPrefectures] = useState<number[]>([]);
   const [
@@ -106,4 +106,4 @@ export function PopuTrackPane() {
       </div>
     </>
   );
-}
+};

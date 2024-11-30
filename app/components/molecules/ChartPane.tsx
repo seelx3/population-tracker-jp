@@ -10,10 +10,6 @@ import { useEffect, useState } from "react";
 
 import { PopulationChart } from "@/app/components/molecules/PopulationChart";
 
-interface Props {
-  prefecturesPopulationCompositionData: PrefectureWithPopulationComposition[];
-}
-
 const contents = [
   {
     key: "total",
@@ -33,7 +29,13 @@ const contents = [
   },
 ];
 
-export function ChartPane({ prefecturesPopulationCompositionData }: Props) {
+type Props = {
+  prefecturesPopulationCompositionData: PrefectureWithPopulationComposition[];
+};
+
+export const ChartPane: React.FC<Props> = ({
+  prefecturesPopulationCompositionData,
+}) => {
   const [
     activePrefecturesPopulationDataList,
     setActivePrefecturesPopulationDataList,
@@ -90,4 +92,4 @@ export function ChartPane({ prefecturesPopulationCompositionData }: Props) {
       />
     </>
   );
-}
+};

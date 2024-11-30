@@ -3,7 +3,7 @@ import styles from "@/app/styles/styles.module.css";
 import { PopuTrackLogo } from "./components/organisms/PopuTrackLogo";
 import { PopuTrackPane } from "./components/organisms/PopuTrackPane";
 
-export default function Page() {
+const Page: React.FC = () => {
   if (!process.env.RESAS_API_KEY) {
     throw new Error("RESAS_API_KEY not found.");
   }
@@ -21,4 +21,6 @@ export default function Page() {
       </div>
     </main>
   );
-}
+};
+
+export default Page;

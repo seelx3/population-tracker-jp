@@ -7,12 +7,15 @@ type Prefectures = {
   prefName: string;
 };
 
-interface Props {
+type Props = {
   prefectures: Prefectures[];
   checkboxHandler: (prefIdx: number) => void;
-}
+};
 
-export function CheckBoxPane({ prefectures, checkboxHandler }: Props) {
+export const CheckBoxPane: React.FC<Props> = ({
+  prefectures,
+  checkboxHandler,
+}) => {
   return (
     <div className={style.checkbox}>
       {prefectures.map((prefecture, idx) => (
@@ -31,4 +34,4 @@ export function CheckBoxPane({ prefectures, checkboxHandler }: Props) {
       ))}
     </div>
   );
-}
+};

@@ -10,13 +10,15 @@ if (typeof Highcharts === "object") {
   Accessibility(Highcharts);
 }
 
-export function PopulationChart({
-  populationDataList,
-  activeKey,
-}: {
+type Props = {
   populationDataList: PopulationDataList;
   activeKey: string;
-}) {
+};
+
+export const PopulationChart: React.FC<Props> = ({
+  populationDataList,
+  activeKey,
+}) => {
   const series: Highcharts.SeriesOptionsType[] = [];
   const categories: string[] = [];
 
@@ -86,4 +88,4 @@ export function PopulationChart({
   };
 
   return <HighchartsReact highcharts={Highcharts} options={options} />;
-}
+};
