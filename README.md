@@ -28,7 +28,7 @@ yarn
 - RESAS API の API キーを `.env` に設定してください。
 
 ```
-RESAS_API_KEY="YOUR_API_KEY"
+API_KEY="YOUR_API_KEY"
 ```
 
 ## Development

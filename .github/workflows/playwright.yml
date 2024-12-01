@@ -15,7 +15,7 @@ jobs:
         run: yarn playwright install --with-deps
       - name: Run Playwright tests
         env:
-          RESAS_API_KEY: ${{ secrets.RESAS_API_KEY }}
+          API_KEY: ${{ secrets.API_KEY }}
         run: yarn test-e2e:chromium
       - uses: actions/upload-artifact@v4
         if: always()

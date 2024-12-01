@@ -22,7 +22,7 @@ export async function GET(req: Request) {
     {
       method: "GET",
       headers: {
-        "X-API-KEY": process.env.RESAS_API_KEY || "",
+        "X-API-KEY": process.env.API_KEY || "",
       },
     },
   );

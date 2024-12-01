@@ -5,8 +5,8 @@ import { PopuTrackLogo } from "./components/organisms/PopuTrackLogo";
 import { PopuTrackPane } from "./components/organisms/PopuTrackPane";
 
 const Page: React.FC = () => {
-  if (!process.env.RESAS_API_KEY) {
-    throw new Error("RESAS_API_KEY not found.");
+  if (!process.env.API_KEY) {
+    throw new Error("API_KEY not found.");
   }
 
   return (
