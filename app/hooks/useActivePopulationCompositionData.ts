@@ -2,21 +2,16 @@ import {
   PopulationDataList,
   PrefectureWithPopulationComposition,
 } from "@/app/types";
-import { useEffect, useState } from "react";
+import { useMemo, useState } from "react";
 
 export const useActivePopulationCompositionData = (
   prefecturesPopulationCompositionData: PrefectureWithPopulationComposition[],
 ) => {
-  const [
-    activePrefecturesPopulationDataList,
-    setActivePrefecturesPopulationDataList,
-  ] = useState<PopulationDataList>([]);
-
   const [activeKey, setActiveKey] = useState<string>("total");
 
-  useEffect(() => {
-    const activePrefecturesPopulationDataList: PopulationDataList =
-      prefecturesPopulationCompositionData.map((prefecture) => ({
+  const activePrefecturesPopulationDataList: PopulationDataList =
+    useMemo(() => {
+      return prefecturesPopulationCompositionData.map((prefecture) => ({
         prefName: prefecture.prefName,
         populationData:
           activeKey === "total"
@@ -29,8 +24,7 @@ export const useActivePopulationCompositionData = (
                   ? prefecture.elderlyPopulationData
                   : [],
       }));
-    setActivePrefecturesPopulationDataList(activePrefecturesPopulationDataList);
-  }, [activeKey, prefecturesPopulationCompositionData]);
+    }, [prefecturesPopulationCompositionData, activeKey]);
 
   return { activeKey, setActiveKey, activePrefecturesPopulationDataList };
 };
