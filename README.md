@@ -6,6 +6,22 @@
 
 ![population-tracker-demo](https://github.com/seelx3/population-tracker-jp/assets/61373111/f44088be-fbbd-4981-8e80-a5da9a8f78d3)
 
+## 使用技術
+
+|                |                    |
+| -------------- | ------------------ |
+| フレームワーク | Next.js (React)    |
+| グラフ描画     | Highcharts         |
+| スタイリング   | css-modules        |
+| フォーマッタ   | Prettier           |
+| リンター       | ESLint             |
+| テストツール   | Playwright         |
+| その他         | Husky, Lint-staged |
+
+## 特徴
+
+- RESAS API を使用するときに API キーが必要になりますが、本アプリケーションではクライアントから API キーを秘匿しています。これは、API routes を使用してサーバーサイドで API キーを使用してデータを取得することにより実現しています。
+
 ## 事前準備
 
 - [asdf](https://asdf-vm.com/)
@@ -41,10 +57,10 @@ yarn dev
 
 - 本アプリケーションは [RESAS API](https://opendata.resas-portal.go.jp/) を使用しています。
 
-## [population-tracker-jp-api](https://github.com/seelx3/population-tracker-jp-api)
+## population-tracker-jp-api
 
 RESAS API は 2025 年 3 月 24 日で提供終了となります。
 
-RESAS API の提供終了後でも動作確認ができるように、[population-tracker-jp-api](https://github.com/seelx3/population-tracker-jp-api) を作成しました。
+ローカルだけで動作確認ができるように、[population-tracker-jp-api](https://github.com/seelx3/population-tracker-jp-api) を作成しました。
 
-RESAS API の代替としてこの API を使用することで、本アプリケーションで必要なデータをローカルで取得することができます。
+詳細は population-tracker-jp-api の README を参照してください。
