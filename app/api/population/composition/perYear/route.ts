@@ -14,7 +14,7 @@ export async function GET(req: Request) {
   try {
     querySchema.parse({ prefCode });
   } catch {
-    throw new Error("Invalid query parameter");
+    return new Response("Invalid query parameter", { status: 400 });
   }
 
   return await fetch(
