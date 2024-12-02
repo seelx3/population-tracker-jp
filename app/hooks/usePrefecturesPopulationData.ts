@@ -36,7 +36,7 @@ export const usePrefecturesPopulationData = (prefectures: Prefecture[]) => {
         }
       }
     },
-    [checkedPrefectures, prefecturesPopulationCompositionData],
+    [checkedPrefectures, prefecturesPopulationCompositionData, prefectures],
   );
 
   return { updateCheckedPrefectures, prefecturesPopulationCompositionData };
