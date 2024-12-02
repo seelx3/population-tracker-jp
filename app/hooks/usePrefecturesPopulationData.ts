@@ -1,7 +1,7 @@
 import { Prefecture, PrefectureWithPopulationComposition } from "@/app/types";
 
 import { getPrefecturePopulationCompositionData } from "@/app/lib/api";
-import { useState } from "react";
+import { useCallback, useState } from "react";
 
 export const usePrefecturesPopulationData = (prefectures: Prefecture[]) => {
   const [checkedPrefectures, setCheckedPrefectures] = useState<number[]>([]);
@@ -10,31 +10,34 @@ export const usePrefecturesPopulationData = (prefectures: Prefecture[]) => {
     setPrefecturesPopulationCompositionData,
   ] = useState<PrefectureWithPopulationComposition[]>([]);
 
-  const updateCheckedPrefectures = async (prefIdx: number) => {
-    if (checkedPrefectures.includes(prefIdx)) {
-      setCheckedPrefectures(
-        checkedPrefectures.filter((idx) => idx !== prefIdx),
-      );
-      setPrefecturesPopulationCompositionData(
-        prefecturesPopulationCompositionData.filter(
-          (data) => data.prefCode !== prefIdx + 1,
-        ),
-      );
-    } else {
-      setCheckedPrefectures([...checkedPrefectures, prefIdx]);
-      try {
-        const newPrefectureCompositionData =
-          await getPrefecturePopulationCompositionData(prefectures[prefIdx]);
+  const updateCheckedPrefectures = useCallback(
+    async (prefIdx: number) => {
+      if (checkedPrefectures.includes(prefIdx)) {
+        setCheckedPrefectures(
+          checkedPrefectures.filter((idx) => idx !== prefIdx),
+        );
+        setPrefecturesPopulationCompositionData(
+          prefecturesPopulationCompositionData.filter(
+            (data) => data.prefCode !== prefIdx + 1,
+          ),
+        );
+      } else {
+        setCheckedPrefectures([...checkedPrefectures, prefIdx]);
+        try {
+          const newPrefectureCompositionData =
+            await getPrefecturePopulationCompositionData(prefectures[prefIdx]);
 
-        setPrefecturesPopulationCompositionData([
-          ...prefecturesPopulationCompositionData,
-          newPrefectureCompositionData,
-        ]);
-      } catch (error) {
-        console.error(error);
+          setPrefecturesPopulationCompositionData([
+            ...prefecturesPopulationCompositionData,
+            newPrefectureCompositionData,
+          ]);
+        } catch (error) {
+          console.error(error);
+        }
       }
-    }
-  };
+    },
+    [checkedPrefectures, prefecturesPopulationCompositionData],
+  );
 
   return { updateCheckedPrefectures, prefecturesPopulationCompositionData };
 };
