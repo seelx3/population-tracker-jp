@@ -1,20 +1,22 @@
-import { useEffect, useState } from "react";
-import { getPrefectures } from "../lib/api";
+import axios from "axios";
+import useSWR from "swr";
 import { Prefecture } from "../types";
 
+async function fetcher(key: string): Promise<Prefecture[]> {
+  return axios
+    .get(key)
+    .then((res) => res.data.result)
+    .catch(() => {
+      throw new Error("都道府県情報の取得に失敗しました");
+    });
+}
+
 export const usePrefectures = () => {
-  const [prefectures, setPrefectures] = useState<Prefecture[]>([]);
+  const { data, error, isLoading } = useSWR("/api/prefectures", fetcher);
 
-  useEffect(() => {
-    (async () => {
-      try {
-        const prefectures = await getPrefectures();
-        setPrefectures(prefectures);
-      } catch (error) {
-        console.error(error);
-      }
-    })();
-  }, []);
-
-  return prefectures;
+  return {
+    prefectures: data,
+    error,
+    isLoading,
+  };
 };

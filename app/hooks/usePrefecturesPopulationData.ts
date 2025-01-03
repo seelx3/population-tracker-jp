@@ -3,7 +3,9 @@ import { Prefecture, PrefectureWithPopulationComposition } from "@/app/types";
 import { getPrefecturePopulationCompositionData } from "@/app/lib/api";
 import { useCallback, useState } from "react";
 
-export const usePrefecturesPopulationData = (prefectures: Prefecture[]) => {
+export const usePrefecturesPopulationData = (
+  prefectures: Prefecture[] | undefined,
+) => {
   const [checkedPrefectures, setCheckedPrefectures] = useState<number[]>([]);
   const [
     prefecturesPopulationCompositionData,
@@ -12,6 +14,9 @@ export const usePrefecturesPopulationData = (prefectures: Prefecture[]) => {
 
   const updateCheckedPrefectures = useCallback(
     async (prefIdx: number) => {
+      if (!prefectures) {
+        return;
+      }
       if (checkedPrefectures.includes(prefIdx)) {
         setCheckedPrefectures(
           checkedPrefectures.filter((idx) => idx !== prefIdx),

@@ -9,7 +9,7 @@ type Prefectures = {
 };
 
 type Props = {
-  prefectures: Prefectures[];
+  prefectures: Prefectures[] | undefined;
   updateCheckedPrefectures: (prefIdx: number) => void;
 };
 
@@ -19,21 +19,25 @@ export const CheckBoxPane: React.FC<Props> = ({
 }) => {
   return (
     <div className={style.checkbox}>
-      {prefectures.map((prefecture, idx) => (
-        <div key={prefecture.prefCode} className={style.checkboxItem}>
-          <input
-            type="checkbox"
-            id={prefecture.prefName}
-            className={style.checkboxInput}
-            onChange={() => {
-              updateCheckedPrefectures(idx);
-            }}
-          />
-          <label htmlFor={prefecture.prefName} className={style.checkboxLabel}>
-            {prefecture.prefName}
-          </label>
-        </div>
-      ))}
+      {prefectures &&
+        prefectures.map((prefecture, idx) => (
+          <div key={prefecture.prefCode} className={style.checkboxItem}>
+            <input
+              type="checkbox"
+              id={prefecture.prefName}
+              className={style.checkboxInput}
+              onChange={() => {
+                updateCheckedPrefectures(idx);
+              }}
+            />
+            <label
+              htmlFor={prefecture.prefName}
+              className={style.checkboxLabel}
+            >
+              {prefecture.prefName}
+            </label>
+          </div>
+        ))}
     </div>
   );
 };

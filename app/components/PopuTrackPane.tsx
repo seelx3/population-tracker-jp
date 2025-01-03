@@ -8,19 +8,25 @@ import { ChartPane } from "./ChartPane";
 import { CheckBoxPane } from "./CheckBoxPane";
 
 export const PopuTrackPane: React.FC = () => {
-  const prefectures = usePrefectures();
+  const { prefectures, error, isLoading } = usePrefectures();
   const { updateCheckedPrefectures, prefecturesPopulationCompositionData } =
     usePrefecturesPopulationData(prefectures);
 
   return (
     <>
       <h3>都道府県</h3>
-      <div className={styles.checkboxContainer}>
-        <CheckBoxPane
-          prefectures={prefectures}
-          updateCheckedPrefectures={updateCheckedPrefectures}
-        />
-      </div>
+      {error ? (
+        <p>エラーが発生しました。</p>
+      ) : isLoading ? (
+        <p>読み込み中...</p>
+      ) : (
+        <div className={styles.checkboxContainer}>
+          <CheckBoxPane
+            prefectures={prefectures}
+            updateCheckedPrefectures={updateCheckedPrefectures}
+          />
+        </div>
+      )}
       <h3>人口推移</h3>
       <div className={styles.chartPaneContainer}>
         <ChartPane

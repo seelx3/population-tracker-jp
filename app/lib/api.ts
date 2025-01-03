@@ -9,16 +9,6 @@ const POPULATION_YOUNG = "年少人口";
 const POPULATION_PRODUCTIVE = "生産年齢人口";
 const POPULATION_ELDERLY = "老年人口";
 
-export async function getPrefectures(): Promise<Prefecture[]> {
-  const prefectures = await fetch("/api/prefectures")
-    .then((res) => res.json())
-    .catch(() => {
-      throw new Error("都道府県情報の取得に失敗しました");
-    });
-
-  return prefectures.result;
-}
-
 export async function getPrefecturePopulationCompositionData(
   prefecture: Prefecture,
 ): Promise<PrefectureWithPopulationComposition> {
