@@ -1,8 +1,8 @@
 import styles from "@/app/styles/page.module.css";
 import React from "react";
 
-import { PopuTrackLogo } from "./components/organisms/PopuTrackLogo";
-import { PopuTrackPane } from "./components/organisms/PopuTrackPane";
+import { PopuTrackLogo } from "@/app/components/PopuTrackLogo";
+import { PopuTrackPane } from "@/app/components/PopuTrackPane";
 
 const Page: React.FC = () => {
   if (!process.env.API_KEY) {

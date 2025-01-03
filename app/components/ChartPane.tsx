@@ -5,7 +5,7 @@ import React from "react";
 
 import { PrefectureWithPopulationComposition } from "@/app/types";
 
-import { PopulationChart } from "@/app/components/molecules/PopulationChart";
+import { PopulationChart } from "@/app/components/PopulationChart";
 import { useActivePopulationCompositionData } from "@/app/hooks/useActivePopulationCompositionData";
 
 const contents = [

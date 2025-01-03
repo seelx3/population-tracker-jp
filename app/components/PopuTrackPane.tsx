@@ -4,8 +4,8 @@ import { usePrefectures } from "@/app/hooks/usePrefectures";
 import { usePrefecturesPopulationData } from "@/app/hooks/usePrefecturesPopulationData";
 import styles from "@/app/styles/popuTrackPane.module.css";
 import React from "react";
-import { ChartPane } from "../molecules/ChartPane";
-import { CheckBoxPane } from "../molecules/CheckBoxPane";
+import { ChartPane } from "./ChartPane";
+import { CheckBoxPane } from "./CheckBoxPane";
 
 export const PopuTrackPane: React.FC = () => {
   const prefectures = usePrefectures();
