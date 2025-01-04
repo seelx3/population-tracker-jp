@@ -52,6 +52,7 @@ export const usePrefecturesPopulationData = (
   );
 
   return {
+    checkedPrefectures,
     prefecturesPopulationCompositionData,
     error,
     isLoading,

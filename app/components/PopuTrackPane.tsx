@@ -14,10 +14,11 @@ export const PopuTrackPane: React.FC = () => {
     isLoading: isLoadingPrefectures,
   } = usePrefectures();
   const {
-    updateCheckedPrefectures,
+    checkedPrefectures,
     prefecturesPopulationCompositionData,
     error: errorCheckedPrefectures,
     isLoading: isLoadingCheckedPrefectures,
+    updateCheckedPrefectures,
   } = usePrefecturesPopulationData(prefectures);
 
   return (
@@ -31,6 +32,7 @@ export const PopuTrackPane: React.FC = () => {
         <div className={styles.checkboxContainer}>
           <CheckBoxPane
             prefectures={prefectures}
+            checkedPrefectures={checkedPrefectures}
             updateCheckedPrefectures={updateCheckedPrefectures}
           />
         </div>

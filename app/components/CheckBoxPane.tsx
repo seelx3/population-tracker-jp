@@ -3,18 +3,20 @@
 import style from "@/app/styles/checkBoxPane.module.css";
 import React from "react";
 
-type Prefectures = {
+type Prefecture = {
   prefCode: number;
   prefName: string;
 };
 
 type Props = {
-  prefectures: Prefectures[] | undefined;
+  prefectures: Prefecture[] | undefined;
+  checkedPrefectures: number[];
   updateCheckedPrefectures: (prefIdx: number) => void;
 };
 
 export const CheckBoxPane: React.FC<Props> = ({
   prefectures,
+  checkedPrefectures,
   updateCheckedPrefectures,
 }) => {
   return (
@@ -24,6 +26,7 @@ export const CheckBoxPane: React.FC<Props> = ({
           <div key={prefecture.prefCode} className={style.checkboxItem}>
             <input
               type="checkbox"
+              checked={checkedPrefectures.includes(idx)}
               id={prefecture.prefName}
               className={style.checkboxInput}
               onChange={() => {
