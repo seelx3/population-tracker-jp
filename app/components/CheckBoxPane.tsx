@@ -2,11 +2,7 @@
 
 import style from "@/app/styles/checkBoxPane.module.css";
 import React from "react";
-
-type Prefecture = {
-  prefCode: number;
-  prefName: string;
-};
+import { Prefecture } from "../types";
 
 type Props = {
   prefectures: Prefecture[] | undefined;
