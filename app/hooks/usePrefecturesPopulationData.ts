@@ -11,6 +11,8 @@ export const usePrefecturesPopulationData = (
     prefecturesPopulationCompositionData,
     setPrefecturesPopulationCompositionData,
   ] = useState<PrefectureWithPopulationComposition[]>([]);
+  const [isLoading, setIsLoading] = useState<boolean>(false);
+  const [error, setError] = useState<Error | null>(null);
 
   const updateCheckedPrefectures = useCallback(
     async (prefIdx: number) => {
@@ -29,6 +31,8 @@ export const usePrefecturesPopulationData = (
       } else {
         setCheckedPrefectures([...checkedPrefectures, prefIdx]);
         try {
+          setError(null);
+          setIsLoading(true);
           const newPrefectureCompositionData =
             await getPrefecturePopulationCompositionData(prefectures[prefIdx]);
 
@@ -37,12 +41,20 @@ export const usePrefecturesPopulationData = (
             newPrefectureCompositionData,
           ]);
         } catch (error) {
+          setError(error as Error);
           console.error(error);
+        } finally {
+          setIsLoading(false);
         }
       }
     },
     [checkedPrefectures, prefecturesPopulationCompositionData, prefectures],
   );
 
-  return { updateCheckedPrefectures, prefecturesPopulationCompositionData };
+  return {
+    prefecturesPopulationCompositionData,
+    error,
+    isLoading,
+    updateCheckedPrefectures,
+  };
 };

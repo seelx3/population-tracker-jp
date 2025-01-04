@@ -30,16 +30,13 @@ export type PrefecturesAPIResponse = {
 };
 
 export type PopulationCompositionAPIResponse = {
-  message: string;
-  result: {
-    boundaryYear: number;
+  boundaryYear: number;
+  data: {
+    label: string;
     data: {
-      label: string;
-      data: {
-        year: number;
-        value: number;
-        rate: number;
-      }[];
+      year: number;
+      value: number;
+      rate: number;
     }[];
-  };
+  }[];
 };

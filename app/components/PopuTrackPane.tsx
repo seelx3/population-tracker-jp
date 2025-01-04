@@ -8,16 +8,24 @@ import { ChartPane } from "./ChartPane";
 import { CheckBoxPane } from "./CheckBoxPane";
 
 export const PopuTrackPane: React.FC = () => {
-  const { prefectures, error, isLoading } = usePrefectures();
-  const { updateCheckedPrefectures, prefecturesPopulationCompositionData } =
-    usePrefecturesPopulationData(prefectures);
+  const {
+    prefectures,
+    error,
+    isLoading: isLoadingPrefectures,
+  } = usePrefectures();
+  const {
+    updateCheckedPrefectures,
+    prefecturesPopulationCompositionData,
+    error: errorCheckedPrefectures,
+    isLoading: isLoadingCheckedPrefectures,
+  } = usePrefecturesPopulationData(prefectures);
 
   return (
     <>
       <h3>都道府県</h3>
       {error ? (
-        <p>エラーが発生しました。</p>
-      ) : isLoading ? (
+        <p>データの読み込みに失敗しました。</p>
+      ) : isLoadingPrefectures ? (
         <p>読み込み中...</p>
       ) : (
         <div className={styles.checkboxContainer}>
@@ -35,6 +43,11 @@ export const PopuTrackPane: React.FC = () => {
           }
         />
       </div>
+      {errorCheckedPrefectures ? (
+        <p>データの読み込みに失敗しました。</p>
+      ) : isLoadingCheckedPrefectures ? (
+        <p>読み込み中...</p>
+      ) : null}
     </>
   );
 };
