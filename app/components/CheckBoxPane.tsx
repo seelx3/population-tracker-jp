@@ -2,18 +2,16 @@
 
 import style from "@/app/styles/checkBoxPane.module.css";
 import React from "react";
+import { useCheckedPrefectures } from "../hooks/useCheckedPrefectures";
 import { usePrefectures } from "../hooks/usePrefectures";
 
 type Props = {
-  checkedPrefectures: number[];
   updateCheckedPrefectures: (prefIdx: number) => void;
 };
 
-export const CheckBoxPane: React.FC<Props> = ({
-  checkedPrefectures,
-  updateCheckedPrefectures,
-}) => {
+export const CheckBoxPane: React.FC<Props> = ({ updateCheckedPrefectures }) => {
   const { prefectures, error, isLoading } = usePrefectures();
+  const { checkedPrefectures } = useCheckedPrefectures();
 
   if (error) {
     return <p>データの読み込みに失敗しました。</p>;

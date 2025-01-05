@@ -1,16 +1,23 @@
-import { Prefecture, PrefectureWithPopulationComposition } from "@/app/types";
+import { PrefectureWithPopulationComposition } from "@/app/types";
 
 import { getPrefecturePopulationCompositionData } from "@/app/lib/api";
+import { atom, useAtom } from "jotai";
 import { useCallback, useState } from "react";
+import { useCheckedPrefectures } from "./useCheckedPrefectures";
+import { usePrefectures } from "./usePrefectures";
 
-export const usePrefecturesPopulationData = (
-  prefectures: Prefecture[] | undefined,
-) => {
-  const [checkedPrefectures, setCheckedPrefectures] = useState<number[]>([]);
+const prefecturesPopulationCompositionDataAtom = atom<
+  PrefectureWithPopulationComposition[]
+>([]);
+
+export const usePrefecturesPopulationData = () => {
+  const { prefectures } = usePrefectures();
+
+  const { checkedPrefectures, setCheckedPrefectures } = useCheckedPrefectures();
   const [
     prefecturesPopulationCompositionData,
     setPrefecturesPopulationCompositionData,
-  ] = useState<PrefectureWithPopulationComposition[]>([]);
+  ] = useAtom(prefecturesPopulationCompositionDataAtom);
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [error, setError] = useState<Error | null>(null);
 
@@ -52,7 +59,6 @@ export const usePrefecturesPopulationData = (
   );
 
   return {
-    checkedPrefectures,
     prefecturesPopulationCompositionData,
     error,
     isLoading,

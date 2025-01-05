@@ -1,6 +1,5 @@
 "use client";
 
-import { usePrefectures } from "@/app/hooks/usePrefectures";
 import { usePrefecturesPopulationData } from "@/app/hooks/usePrefecturesPopulationData";
 import styles from "@/app/styles/popuTrackPane.module.css";
 import React from "react";
@@ -8,23 +7,18 @@ import { ChartPane } from "./ChartPane";
 import { CheckBoxPane } from "./CheckBoxPane";
 
 export const PopuTrackPane: React.FC = () => {
-  const { prefectures } = usePrefectures();
   const {
-    checkedPrefectures,
     prefecturesPopulationCompositionData,
     error: errorCheckedPrefectures,
     isLoading: isLoadingCheckedPrefectures,
     updateCheckedPrefectures,
-  } = usePrefecturesPopulationData(prefectures);
+  } = usePrefecturesPopulationData();
 
   return (
     <>
       <h3>都道府県</h3>
       <div className={styles.checkboxContainer}>
-        <CheckBoxPane
-          checkedPrefectures={checkedPrefectures}
-          updateCheckedPrefectures={updateCheckedPrefectures}
-        />
+        <CheckBoxPane updateCheckedPrefectures={updateCheckedPrefectures} />
       </div>
       <h3>人口推移</h3>
       <div className={styles.chartPaneContainer}>
