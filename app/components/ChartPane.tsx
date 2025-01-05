@@ -29,9 +29,12 @@ const CONTENTS = [
 export const ChartPane: React.FC = () => {
   return (
     <>
-      <SelectPopulationCompositionTab />
-      <PopulationChart />
-      <Notification />
+      <h3>人口推移</h3>
+      <div className={style.chartPaneContainer}>
+        <SelectPopulationCompositionTab />
+        <PopulationChart />
+        <Notification />
+      </div>
     </>
   );
 };

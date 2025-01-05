@@ -7,6 +7,15 @@ import { usePrefectures } from "../hooks/usePrefectures";
 import { usePrefecturesPopulationData } from "../hooks/usePrefecturesPopulationData";
 
 export const CheckBoxPane: React.FC = () => {
+  return (
+    <>
+      <h3>都道府県</h3>
+      <CheckBoxList />
+    </>
+  );
+};
+
+const CheckBoxList: React.FC = () => {
   const { prefectures, error, isLoading } = usePrefectures();
   const { checkedPrefectures } = useCheckedPrefectures();
   const { updateCheckedPrefecturesData } = usePrefecturesPopulationData();
@@ -20,27 +29,29 @@ export const CheckBoxPane: React.FC = () => {
   }
 
   return (
-    <div className={style.checkbox}>
-      {prefectures &&
-        prefectures.map((prefecture, idx) => (
-          <div key={prefecture.prefCode} className={style.checkboxItem}>
-            <input
-              type="checkbox"
-              checked={checkedPrefectures.includes(idx)}
-              id={prefecture.prefName}
-              className={style.checkboxInput}
-              onChange={() => {
-                updateCheckedPrefecturesData(idx);
-              }}
-            />
-            <label
-              htmlFor={prefecture.prefName}
-              className={style.checkboxLabel}
-            >
-              {prefecture.prefName}
-            </label>
-          </div>
-        ))}
+    <div className={style.checkBoxPaneContainer}>
+      <div className={style.checkbox}>
+        {prefectures &&
+          prefectures.map((prefecture, idx) => (
+            <div key={prefecture.prefCode} className={style.checkboxItem}>
+              <input
+                type="checkbox"
+                checked={checkedPrefectures.includes(idx)}
+                id={prefecture.prefName}
+                className={style.checkboxInput}
+                onChange={() => {
+                  updateCheckedPrefecturesData(idx);
+                }}
+              />
+              <label
+                htmlFor={prefecture.prefName}
+                className={style.checkboxLabel}
+              >
+                {prefecture.prefName}
+              </label>
+            </div>
+          ))}
+      </div>
     </div>
   );
 };
