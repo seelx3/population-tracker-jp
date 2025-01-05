@@ -9,9 +9,7 @@ export const PopuTrackPane: React.FC = () => {
   return (
     <>
       <h3>都道府県</h3>
-      <div className={styles.checkboxContainer}>
-        <CheckBoxPane />
-      </div>
+      <CheckBoxPane />
       <h3>人口推移</h3>
       <div className={styles.chartPaneContainer}>
         <ChartPane />
