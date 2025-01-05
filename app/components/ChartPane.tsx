@@ -27,37 +27,55 @@ const contents = [
 ];
 
 export const ChartPane: React.FC = () => {
-  const { error, isLoading } = usePrefecturesPopulationData();
+  return (
+    <>
+      <SelectPopulationCompositionTab />
+      <PopulationChart />
+      <Notification />
+    </>
+  );
+};
+
+const SelectPopulationCompositionTab: React.FC = () => {
   const { activeKey, setActiveKey } = useActiveKey();
 
   return (
-    <>
-      <ul className={style.chartTabUl}>
-        {contents.map((content) => (
-          <li key={content.key} className={style.chartTabLi}>
-            <button
-              className={`${style.chartTabButton}`}
-              style={
-                activeKey === content.key
-                  ? {
-                      border: "1px solid gray",
-                      borderBottom: "0px",
-                    }
-                  : {
-                      border: "0px",
-                      borderBottom: "1px solid gray",
-                    }
-              }
-              onClick={() => setActiveKey(content.key)}
-            >
-              {content.label}
-            </button>
-          </li>
-        ))}
-      </ul>
-      <PopulationChart />
-      {error ? <p>データの読み込みに失敗しました。</p> : null}
-      {isLoading ? <p>読み込み中...</p> : null}
-    </>
+    <ul className={style.chartTabUl}>
+      {contents.map((content) => (
+        <li key={content.key} className={style.chartTabLi}>
+          <button
+            className={`${style.chartTabButton}`}
+            style={
+              activeKey === content.key
+                ? {
+                    border: "1px solid gray",
+                    borderBottom: "0px",
+                  }
+                : {
+                    border: "0px",
+                    borderBottom: "1px solid gray",
+                  }
+            }
+            onClick={() => setActiveKey(content.key)}
+          >
+            {content.label}
+          </button>
+        </li>
+      ))}
+    </ul>
   );
+};
+
+const Notification: React.FC = () => {
+  const { error, isLoading } = usePrefecturesPopulationData();
+
+  if (error) {
+    return <p>データの読み込みに失敗しました。</p>;
+  }
+
+  if (isLoading) {
+    return <p>読み込み中...</p>;
+  }
+
+  return null;
 };
