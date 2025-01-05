@@ -1,11 +1,12 @@
 "use client";
 
-import { PopulationDataList } from "@/app/types";
 import React from "react";
 
 import Highcharts from "highcharts";
 import HighchartsReact from "highcharts-react-official";
 import Accessibility from "highcharts/modules/accessibility";
+import { useActiveKey } from "../hooks/useActiveKey";
+import { useActivePrefecturePopulationDataList } from "../hooks/useActivePrefecturePopulationDataList";
 
 if (typeof Highcharts === "object") {
   Accessibility(Highcharts);
@@ -26,15 +27,11 @@ const populationFormatter = (value: number): string => {
   );
 };
 
-type Props = {
-  populationDataList: PopulationDataList;
-  activeKey: string;
-};
+export const PopulationChart: React.FC = () => {
+  const { activePrefecturesPopulationDataList: populationDataList } =
+    useActivePrefecturePopulationDataList();
+  const { activeKey } = useActiveKey();
 
-export const PopulationChart: React.FC<Props> = ({
-  populationDataList,
-  activeKey,
-}) => {
   const categories: string[] = populationDataList[0]?.populationData.map(
     (populationData) => populationData.year.toString(),
   );

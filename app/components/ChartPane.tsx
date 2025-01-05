@@ -5,7 +5,6 @@ import React from "react";
 
 import { PopulationChart } from "@/app/components/PopulationChart";
 import { useActiveKey } from "@/app/hooks/useActiveKey";
-import { useActivePrefecturePopulationDataList } from "../hooks/useActivePrefecturePopulationDataList";
 import { usePrefecturesPopulationData } from "../hooks/usePrefecturesPopulationData";
 
 const contents = [
@@ -30,8 +29,6 @@ const contents = [
 export const ChartPane: React.FC = () => {
   const { error, isLoading } = usePrefecturesPopulationData();
   const { activeKey, setActiveKey } = useActiveKey();
-  const { activePrefecturesPopulationDataList } =
-    useActivePrefecturePopulationDataList();
 
   return (
     <>
@@ -58,10 +55,7 @@ export const ChartPane: React.FC = () => {
           </li>
         ))}
       </ul>
-      <PopulationChart
-        populationDataList={activePrefecturesPopulationDataList}
-        activeKey={activeKey}
-      />
+      <PopulationChart />
       {error ? <p>データの読み込みに失敗しました。</p> : null}
       {isLoading ? <p>読み込み中...</p> : null}
     </>
