@@ -11,14 +11,14 @@ export const PopuTrackPane: React.FC = () => {
     prefecturesPopulationCompositionData,
     error: errorCheckedPrefectures,
     isLoading: isLoadingCheckedPrefectures,
-    updateCheckedPrefectures,
+    updateCheckedPrefecturesData,
   } = usePrefecturesPopulationData();
 
   return (
     <>
       <h3>都道府県</h3>
       <div className={styles.checkboxContainer}>
-        <CheckBoxPane updateCheckedPrefectures={updateCheckedPrefectures} />
+        <CheckBoxPane updateCheckedPrefectures={updateCheckedPrefecturesData} />
       </div>
       <h3>人口推移</h3>
       <div className={styles.chartPaneContainer}>

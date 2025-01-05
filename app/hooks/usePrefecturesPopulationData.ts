@@ -12,8 +12,8 @@ const prefecturesPopulationCompositionDataAtom = atom<
 
 export const usePrefecturesPopulationData = () => {
   const { prefectures } = usePrefectures();
-
   const { checkedPrefectures, setCheckedPrefectures } = useCheckedPrefectures();
+
   const [
     prefecturesPopulationCompositionData,
     setPrefecturesPopulationCompositionData,
@@ -21,7 +21,7 @@ export const usePrefecturesPopulationData = () => {
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [error, setError] = useState<Error | null>(null);
 
-  const updateCheckedPrefectures = useCallback(
+  const updateCheckedPrefecturesData = useCallback(
     async (prefIdx: number) => {
       if (!prefectures) {
         return;
@@ -55,13 +55,13 @@ export const usePrefecturesPopulationData = () => {
         }
       }
     },
-    [checkedPrefectures, prefecturesPopulationCompositionData, prefectures],
+    [prefectures, checkedPrefectures, prefecturesPopulationCompositionData],
   );
 
   return {
     prefecturesPopulationCompositionData,
     error,
     isLoading,
-    updateCheckedPrefectures,
+    updateCheckedPrefecturesData,
   };
 };
