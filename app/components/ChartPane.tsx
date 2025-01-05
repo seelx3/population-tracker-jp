@@ -4,7 +4,8 @@ import style from "@/app/styles/chartPane.module.css";
 import React from "react";
 
 import { PopulationChart } from "@/app/components/PopulationChart";
-import { useActivePopulationCompositionData } from "@/app/hooks/useActivePopulationCompositionData";
+import { useActiveKey } from "@/app/hooks/useActiveKey";
+import { useActivePrefecturePopulationDataList } from "../hooks/useActivePrefecturePopulationDataList";
 import { usePrefecturesPopulationData } from "../hooks/usePrefecturesPopulationData";
 
 const contents = [
@@ -27,10 +28,10 @@ const contents = [
 ];
 
 export const ChartPane: React.FC = () => {
-  const { prefecturesPopulationCompositionData, error, isLoading } =
-    usePrefecturesPopulationData();
-  const { activeKey, setActiveKey, activePrefecturesPopulationDataList } =
-    useActivePopulationCompositionData(prefecturesPopulationCompositionData);
+  const { error, isLoading } = usePrefecturesPopulationData();
+  const { activeKey, setActiveKey } = useActiveKey();
+  const { activePrefecturesPopulationDataList } =
+    useActivePrefecturePopulationDataList();
 
   return (
     <>

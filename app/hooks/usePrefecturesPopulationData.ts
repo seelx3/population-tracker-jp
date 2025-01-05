@@ -6,7 +6,7 @@ import { useCallback } from "react";
 import { useCheckedPrefectures } from "./useCheckedPrefectures";
 import { usePrefectures } from "./usePrefectures";
 
-const prefecturesPopulationCompositionDataAtom = atom<
+export const prefecturesPopulationCompositionDataAtom = atom<
   PrefectureWithPopulationComposition[]
 >([]);
 const isLoadingAtom = atom<boolean>(false);
