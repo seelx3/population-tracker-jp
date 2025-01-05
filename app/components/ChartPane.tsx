@@ -3,10 +3,9 @@
 import style from "@/app/styles/chartPane.module.css";
 import React from "react";
 
-import { PrefectureWithPopulationComposition } from "@/app/types";
-
 import { PopulationChart } from "@/app/components/PopulationChart";
 import { useActivePopulationCompositionData } from "@/app/hooks/useActivePopulationCompositionData";
+import { usePrefecturesPopulationData } from "../hooks/usePrefecturesPopulationData";
 
 const contents = [
   {
@@ -27,13 +26,9 @@ const contents = [
   },
 ];
 
-type Props = {
-  prefecturesPopulationCompositionData: PrefectureWithPopulationComposition[];
-};
-
-export const ChartPane: React.FC<Props> = ({
-  prefecturesPopulationCompositionData,
-}) => {
+export const ChartPane: React.FC = () => {
+  const { prefecturesPopulationCompositionData, error, isLoading } =
+    usePrefecturesPopulationData();
   const { activeKey, setActiveKey, activePrefecturesPopulationDataList } =
     useActivePopulationCompositionData(prefecturesPopulationCompositionData);
 
@@ -66,6 +61,8 @@ export const ChartPane: React.FC<Props> = ({
         populationDataList={activePrefecturesPopulationDataList}
         activeKey={activeKey}
       />
+      {error ? <p>データの読み込みに失敗しました。</p> : null}
+      {isLoading ? <p>読み込み中...</p> : null}
     </>
   );
 };

@@ -1,20 +1,29 @@
-import { Prefecture, PrefectureWithPopulationComposition } from "@/app/types";
+import { PrefectureWithPopulationComposition } from "@/app/types";
 
 import { getPrefecturePopulationCompositionData } from "@/app/lib/api";
-import { useCallback, useState } from "react";
+import { atom, useAtom } from "jotai";
+import { useCallback } from "react";
+import { useCheckedPrefectures } from "./useCheckedPrefectures";
+import { usePrefectures } from "./usePrefectures";
 
-export const usePrefecturesPopulationData = (
-  prefectures: Prefecture[] | undefined,
-) => {
-  const [checkedPrefectures, setCheckedPrefectures] = useState<number[]>([]);
+const prefecturesPopulationCompositionDataAtom = atom<
+  PrefectureWithPopulationComposition[]
+>([]);
+const isLoadingAtom = atom<boolean>(false);
+const errorAtom = atom<Error | null>(null);
+
+export const usePrefecturesPopulationData = () => {
+  const { prefectures } = usePrefectures();
+  const { checkedPrefectures, setCheckedPrefectures } = useCheckedPrefectures();
+
   const [
     prefecturesPopulationCompositionData,
     setPrefecturesPopulationCompositionData,
-  ] = useState<PrefectureWithPopulationComposition[]>([]);
-  const [isLoading, setIsLoading] = useState<boolean>(false);
-  const [error, setError] = useState<Error | null>(null);
+  ] = useAtom(prefecturesPopulationCompositionDataAtom);
+  const [isLoading, setIsLoading] = useAtom(isLoadingAtom);
+  const [error, setError] = useAtom(errorAtom);
 
-  const updateCheckedPrefectures = useCallback(
+  const updateCheckedPrefecturesData = useCallback(
     async (prefIdx: number) => {
       if (!prefectures) {
         return;
@@ -48,14 +57,13 @@ export const usePrefecturesPopulationData = (
         }
       }
     },
-    [checkedPrefectures, prefecturesPopulationCompositionData, prefectures],
+    [prefectures, checkedPrefectures, prefecturesPopulationCompositionData],
   );
 
   return {
-    checkedPrefectures,
     prefecturesPopulationCompositionData,
     error,
     isLoading,
-    updateCheckedPrefectures,
+    updateCheckedPrefecturesData,
   };
 };

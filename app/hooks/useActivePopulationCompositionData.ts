@@ -2,12 +2,15 @@ import {
   PopulationDataList,
   PrefectureWithPopulationComposition,
 } from "@/app/types";
-import { useMemo, useState } from "react";
+import { atom, useAtom } from "jotai";
+import { useMemo } from "react";
+
+const activeKeyAtom = atom<string>("total");
 
 export const useActivePopulationCompositionData = (
   prefecturesPopulationCompositionData: PrefectureWithPopulationComposition[],
 ) => {
-  const [activeKey, setActiveKey] = useState<string>("total");
+  const [activeKey, setActiveKey] = useAtom(activeKeyAtom);
 
   const activePrefecturesPopulationDataList: PopulationDataList =
     useMemo(() => {
