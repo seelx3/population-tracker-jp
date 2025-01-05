@@ -7,7 +7,7 @@ import { PopulationChart } from "@/app/components/PopulationChart";
 import { useActiveKey } from "@/app/hooks/useActiveKey";
 import { usePrefecturesPopulationData } from "../hooks/usePrefecturesPopulationData";
 
-const contents = [
+const CONTENTS = [
   {
     key: "total",
     label: "総人口",
@@ -41,7 +41,7 @@ const SelectPopulationCompositionTab: React.FC = () => {
 
   return (
     <ul className={style.chartTabUl}>
-      {contents.map((content) => (
+      {CONTENTS.map((content) => (
         <li key={content.key} className={style.chartTabLi}>
           <button
             className={`${style.chartTabButton}`}
