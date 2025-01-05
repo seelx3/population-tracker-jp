@@ -16,15 +16,20 @@ export const CheckBoxPane: React.FC = () => {
 };
 
 const CheckBoxList: React.FC = () => {
-  const { prefectures, error, isLoading } = usePrefectures();
+  const {
+    prefectures,
+    error,
+    isLoading: isLoadingPrefectures,
+  } = usePrefectures();
   const { checkedPrefectures } = useCheckedPrefectures();
-  const { updateCheckedPrefecturesData } = usePrefecturesPopulationData();
+  const { isLoading: isLoadingData, updateCheckedPrefecturesData } =
+    usePrefecturesPopulationData();
 
   if (error) {
     return <p>データの読み込みに失敗しました。</p>;
   }
 
-  if (isLoading) {
+  if (isLoadingPrefectures) {
     return <p>読み込み中...</p>;
   }
 
@@ -35,6 +40,7 @@ const CheckBoxList: React.FC = () => {
           prefectures.map((prefecture, idx) => (
             <div key={prefecture.prefCode} className={style.checkboxItem}>
               <input
+                disabled={isLoadingData}
                 type="checkbox"
                 checked={checkedPrefectures.includes(idx)}
                 id={prefecture.prefName}
