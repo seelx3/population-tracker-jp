@@ -8,6 +8,10 @@ export const fetchPopulationCompositionData = async ({
 }: {
   prefCode: number;
 }): Promise<PopulationCompositionAPIResponse> => {
+  if (!(prefCode >= 1 && prefCode <= 47)) {
+    throw new Error("都道府県コードが不正です");
+  }
+
   const response = await axios
     .get(`${POPULATION_COMPOSITION_API}?prefCode=${prefCode}`)
     .then((res) => res.data.result)
