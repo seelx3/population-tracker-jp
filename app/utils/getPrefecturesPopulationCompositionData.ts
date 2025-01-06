@@ -4,7 +4,7 @@ import {
   PrefectureWithPopulationComposition,
 } from "@/app/types";
 import { QueryClient } from "@tanstack/react-query";
-import axios from "axios";
+import { fetchPopulationCompositionData } from "../endpoints/populationCompositionData";
 
 const POPULATION_TOTAL = "総人口";
 const POPULATION_YOUNG = "年少人口";
@@ -18,12 +18,10 @@ export async function getPrefecturePopulationCompositionData(
   const populationComposition: PopulationCompositionAPIResponse =
     await queryClient.fetchQuery({
       queryKey: ["populationComposition", prefecture.prefCode],
-      queryFn: async () => {
-        const response = await axios.get(
-          `/api/population/composition/perYear?prefCode=${prefecture.prefCode}`,
-        );
-        return response.data.result;
-      },
+      queryFn: async () =>
+        await fetchPopulationCompositionData({
+          prefCode: prefecture.prefCode,
+        }),
       staleTime: 1000 * 60 * 60 * 1,
     });
 

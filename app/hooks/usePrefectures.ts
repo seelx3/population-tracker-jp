@@ -1,21 +1,11 @@
-import axios from "axios";
 import { useAtom } from "jotai";
 import { atomWithQuery } from "jotai-tanstack-query";
-import { Prefecture } from "../types";
-
-const PREFECTURES_API = "/api/prefectures";
+import { fetchPrefectures } from "../endpoints/prefectures";
 
 const prefecturesAtom = atomWithQuery(() => ({
   queryKey: ["prefectures"],
-  queryFn: async (): Promise<Prefecture[]> => {
-    const response = await axios
-      .get(PREFECTURES_API)
-      .then((res) => res.data.result)
-      .catch(() => {
-        throw new Error("都道府県情報の取得に失敗しました");
-      });
-    return response;
-  },
+  queryFn: fetchPrefectures,
+  staleTime: 1000 * 60 * 60 * 1,
 }));
 
 export const usePrefectures = () => {
