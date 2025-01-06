@@ -3,6 +3,7 @@ import {
   Prefecture,
   PrefectureWithPopulationComposition,
 } from "@/app/types";
+import { QueryClient } from "@tanstack/react-query";
 import axios from "axios";
 
 const POPULATION_TOTAL = "総人口";
@@ -11,13 +12,19 @@ const POPULATION_PRODUCTIVE = "生産年齢人口";
 const POPULATION_ELDERLY = "老年人口";
 
 export async function getPrefecturePopulationCompositionData(
+  queryClient: QueryClient,
   prefecture: Prefecture,
 ): Promise<PrefectureWithPopulationComposition> {
-  const populationComposition: PopulationCompositionAPIResponse = await axios
-    .get(`/api/population/composition/perYear?prefCode=${prefecture.prefCode}`)
-    .then((res) => res.data.result)
-    .catch(() => {
-      throw new Error("人口構成データの取得に失敗しました");
+  const populationComposition: PopulationCompositionAPIResponse =
+    await queryClient.fetchQuery({
+      queryKey: ["populationComposition", prefecture.prefCode],
+      queryFn: async () => {
+        const response = await axios.get(
+          `/api/population/composition/perYear?prefCode=${prefecture.prefCode}`,
+        );
+        return response.data.result;
+      },
+      staleTime: 1000 * 60 * 60 * 1,
     });
 
   return {
