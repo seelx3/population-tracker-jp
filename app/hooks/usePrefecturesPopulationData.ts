@@ -1,6 +1,6 @@
 import { PrefectureWithPopulationComposition } from "@/app/types";
 
-import { getPrefecturePopulationCompositionData } from "@/app/lib/api";
+import { getPrefecturePopulationCompositionData } from "@/app/utils/getPrefecturesPopulationCompositionData";
 import { useQueryClient } from "@tanstack/react-query";
 import { atom, useAtom } from "jotai";
 import { useCallback } from "react";
