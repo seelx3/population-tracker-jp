@@ -8,15 +8,17 @@
 
 ## 使用技術
 
-|                |                    |
-| -------------- | ------------------ |
-| フレームワーク | Next.js (React)    |
-| グラフ描画     | Highcharts         |
-| スタイリング   | css-modules        |
-| フォーマッタ   | Prettier           |
-| リンター       | ESLint             |
-| テストツール   | Playwright         |
-| その他         | Husky, Lint-staged |
+|                |                       |
+| -------------- | --------------------- |
+| フレームワーク | Next.js (React)       |
+| 状態管理       | Jotai                 |
+| フェッチ       | TanStack Query, Axios |
+| グラフ描画     | Highcharts            |
+| スタイリング   | css-modules           |
+| フォーマッタ   | Prettier              |
+| リンター       | ESLint                |
+| テストツール   | Playwright            |
+| その他         | Husky, Lint-staged    |
 
 ## 特徴
 
