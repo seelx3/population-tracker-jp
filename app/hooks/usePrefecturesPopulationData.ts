@@ -28,6 +28,7 @@ export const usePrefecturesPopulationData = () => {
       if (!prefectures) {
         return;
       }
+      setError(null);
       if (checkedPrefectures.includes(prefIdx)) {
         setCheckedPrefectures(
           checkedPrefectures.filter((idx) => idx !== prefIdx),
@@ -38,10 +39,9 @@ export const usePrefecturesPopulationData = () => {
           ),
         );
       } else {
-        setCheckedPrefectures([...checkedPrefectures, prefIdx]);
         try {
-          setError(null);
           setIsLoading(true);
+
           const newPrefectureCompositionData =
             await getPrefecturePopulationCompositionData(prefectures[prefIdx]);
 
@@ -49,9 +49,10 @@ export const usePrefecturesPopulationData = () => {
             ...prefecturesPopulationCompositionData,
             newPrefectureCompositionData,
           ]);
+
+          setCheckedPrefectures([...checkedPrefectures, prefIdx]);
         } catch (error) {
           setError(error as Error);
-          console.error(error);
         } finally {
           setIsLoading(false);
         }
