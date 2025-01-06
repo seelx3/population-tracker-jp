@@ -13,8 +13,10 @@ test("チェックボックスが 47 個ある", async ({ page }) => {
 });
 
 test("東京都のチェックボックスのチェックの切り替え", async ({ page }) => {
-  // 東京都のチェックボックスをクリックする
-  await page.check("#東京都");
+  await page.click("#東京都");
+
+  // 3 秒待つ
+  await page.waitForTimeout(3000);
 
   // 東京都のチェックボックスがチェックされている
   await expect(page.locator("#東京都")).toBeChecked();
@@ -39,8 +41,15 @@ test("東京都のチェックボックスのチェックの切り替え", async
 
 test("複数の都道府県を選択する", async ({ page }) => {
   // 北海道、群馬県のチェックボックスをクリックする
-  await page.check("#北海道");
-  await page.check("#群馬県");
+  await page.click("#北海道");
+
+  // 3 秒待つ
+  await page.waitForTimeout(3000);
+
+  await page.click("#群馬県");
+
+  // 3 秒待つ
+  await page.waitForTimeout(3000);
 
   // 折れ線グラフが 2 本描画されている
   await expect(page.locator(".highcharts-tracker-line")).toHaveCount(2);
@@ -50,8 +59,15 @@ test("複数の都道府県を選択する", async ({ page }) => {
   await expect(legendItem).toHaveCount(2);
 
   // 東京都、京都府のチェックボックスをクリックする
-  await page.check("#東京都");
-  await page.check("#京都府");
+  await page.click("#東京都");
+
+  // 3 秒待つ
+  await page.waitForTimeout(3000);
+
+  await page.click("#京都府");
+
+  // 3 秒待つ
+  await page.waitForTimeout(3000);
 
   await expect(page.locator(".highcharts-tracker-line")).toHaveCount(4);
   await expect(legendItem).toHaveCount(4);
@@ -71,7 +87,10 @@ test("複数の都道府県を選択する", async ({ page }) => {
 
 test("人口のタブを切り替える", async ({ page }) => {
   // 埼玉県のチェックボックスをクリックする
-  await page.check("#埼玉県");
+  await page.click("#埼玉県");
+
+  // 3 秒待つ
+  await page.waitForTimeout(3000);
 
   const title = page.locator(".highcharts-title");
 
