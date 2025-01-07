@@ -12,8 +12,12 @@ export const fetchPopulationCompositionData = async ({
     throw new Error("都道府県コードが不正です");
   }
 
+  const params = new URLSearchParams({
+    prefCode: prefCode.toString(),
+  });
+
   const response = await axios
-    .get(`${POPULATION_COMPOSITION_API}?prefCode=${prefCode}`)
+    .get(`${POPULATION_COMPOSITION_API}?${params}`)
     .then((res) => res.data.result)
     .catch(() => {
       throw new Error("人口構成データの取得に失敗しました");
