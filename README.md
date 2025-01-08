@@ -60,7 +60,7 @@ yarn dev
 
 - 本アプリケーションは [RESAS API](https://opendata.resas-portal.go.jp/) を使用しています。
 
-## population-tracker-jp-api
+## 動作確認用 API サーバー
 
 RESAS API は 2025 年 3 月 24 日で提供終了になります。
 
