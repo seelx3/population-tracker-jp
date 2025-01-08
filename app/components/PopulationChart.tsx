@@ -7,25 +7,14 @@ import HighchartsReact from "highcharts-react-official";
 import Accessibility from "highcharts/modules/accessibility";
 import { useActiveKey } from "../hooks/useActiveKey";
 import { useActivePrefecturePopulationDataList } from "../hooks/useActivePrefecturePopulationDataList";
+import {
+  populationFormatter,
+  yAxisLabelFormatter,
+} from "../utils/formatterUtils";
 
 if (typeof Highcharts === "object") {
   Accessibility(Highcharts);
 }
-
-const TEN_THOUSAND = 10000;
-
-const yAxisLabelFormatter = (value: number): string => {
-  return Number(value) / TEN_THOUSAND + "万";
-};
-
-const populationFormatter = (value: number): string => {
-  return (
-    (value >= TEN_THOUSAND
-      ? Math.floor(Number(value) / TEN_THOUSAND) + "万"
-      : "") +
-    (value % TEN_THOUSAND)
-  );
-};
 
 export const PopulationChart: React.FC = () => {
   const { activePrefecturesPopulationDataList: populationDataList } =
