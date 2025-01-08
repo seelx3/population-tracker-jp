@@ -5,10 +5,11 @@ export const yAxisLabelFormatter = (value: number): string => {
 };
 
 export const populationFormatter = (value: number): string => {
+  const divTenThousand = Math.floor(value / TEN_THOUSAND);
   const modTenThousand = value % TEN_THOUSAND;
 
   return (
-    (value >= TEN_THOUSAND ? Math.floor(value / TEN_THOUSAND) + "万" : "") +
+    (value >= TEN_THOUSAND ? divTenThousand + "万" : "") +
     (modTenThousand > 0 ? modTenThousand : "")
   );
 };
