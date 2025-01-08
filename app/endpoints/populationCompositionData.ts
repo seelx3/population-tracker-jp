@@ -1,5 +1,13 @@
 import axios from "axios";
+import { z } from "zod";
 import { PopulationCompositionAPIResponse } from "../types";
+
+const querySchema = z.object({
+  prefCode: z.string().refine((val) => {
+    const intValue = parseInt(val);
+    return intValue >= 1 && intValue <= 47;
+  }),
+});
 
 const POPULATION_COMPOSITION_API = "/api/population/composition/perYear";
 
@@ -8,12 +16,16 @@ export const fetchPopulationCompositionData = async ({
 }: {
   prefCode: number;
 }): Promise<PopulationCompositionAPIResponse> => {
-  if (!(prefCode >= 1 && prefCode <= 47)) {
+  const prefCodeString = prefCode.toString();
+
+  try {
+    querySchema.parse({ prefCode: prefCodeString });
+  } catch {
     throw new Error("都道府県コードが不正です");
   }
 
   const params = new URLSearchParams({
-    prefCode: prefCode.toString(),
+    prefCode: prefCodeString,
   });
 
   const response = await axios
