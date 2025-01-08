@@ -16,8 +16,7 @@ jobs:
       - name: Run Playwright tests
         env:
           API_KEY: ${{ secrets.API_KEY }}
-          PREFECTURES_API_URL: ${{ secrets.PREFECTURES_API_URL }}
-          POPULATION_COMPOSITION_API_URL: ${{ secrets.POPULATION_COMPOSITION_API_URL }}
+          API_ENDPOINT: ${{ secrets.API_ENDPOINT }}
         run: yarn test-e2e:chromium
       - uses: actions/upload-artifact@v4
         if: always()
