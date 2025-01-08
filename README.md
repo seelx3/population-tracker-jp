@@ -22,7 +22,7 @@
 
 ## 特徴
 
-- RESAS API を使用するときに API キーが必要になりますが、本アプリケーションではクライアントから API キーを秘匿しています。これは、API routes を使用してサーバーサイドで API キーを使用してデータを取得することにより実現しています。
+- API サーバー（RESAS API）から都道府県別の人口推移データを取得し、グラフとして表示します。
 
 ## 事前準備
 
@@ -43,10 +43,11 @@ asdf install
 yarn
 ```
 
-- RESAS API の API キーを `.env` に設定してください。
+- API サーバーのエンドポイント及び API キーを `.env` に設定してください。
 
 ```
-API_KEY="YOUR_API_KEY"
+API_ENDPOINT= # API endpoint e.g. "https://opendata.resas-portal.go.jp"
+API_KEY= # Your API key
 ```
 
 - 以下のコマンドで開発サーバーを起動します。
@@ -61,8 +62,8 @@ yarn dev
 
 ## population-tracker-jp-api
 
-RESAS API は 2025 年 3 月 24 日で提供終了となります。
+RESAS API は 2025 年 3 月 24 日で提供終了になります。
 
-ローカルだけで動作確認ができるように、[population-tracker-jp-api](https://github.com/seelx3/population-tracker-jp-api) を作成しました。
+ローカルで動作確認ができるように、[population-tracker-jp-api](https://github.com/seelx3/population-tracker-jp-api) を作成しました。
 
 詳細は population-tracker-jp-api の README を参照してください。
