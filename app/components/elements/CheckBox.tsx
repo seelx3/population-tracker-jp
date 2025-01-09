@@ -1,6 +1,5 @@
 import style from "@/app/styles/checkBox.module.css";
 import { Prefecture } from "@/app/types";
-import PropTypes from "prop-types";
 import React from "react";
 
 type Props = {
@@ -33,15 +32,4 @@ export const CheckBox: React.FC<Props> = ({
       <label htmlFor={prefecture.prefName}>{prefecture.prefName}</label>
     </div>
   );
-};
-
-CheckBox.propTypes = {
-  prefecture: PropTypes.shape({
-    prefCode: PropTypes.number.isRequired,
-    prefName: PropTypes.string.isRequired,
-  }).isRequired,
-  idx: PropTypes.number.isRequired,
-  isLoading: PropTypes.bool.isRequired,
-  checked: PropTypes.bool.isRequired,
-  updateCheckedPrefecturesData: PropTypes.func.isRequired,
 };
