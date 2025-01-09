@@ -1,20 +1,13 @@
-"use client";
-
 import React from "react";
 
 import Highcharts from "highcharts";
 import HighchartsReact from "highcharts-react-official";
-import Accessibility from "highcharts/modules/accessibility";
 import { useActiveKey } from "../hooks/useActiveKey";
 import { useActivePrefecturePopulationDataList } from "../hooks/useActivePrefecturePopulationDataList";
 import {
   populationFormatter,
   yAxisLabelFormatter,
 } from "../utils/formatterUtils";
-
-if (typeof Highcharts === "object") {
-  Accessibility(Highcharts);
-}
 
 export const PopulationChart: React.FC = () => {
   const { activePrefecturesPopulationDataList: populationDataList } =
