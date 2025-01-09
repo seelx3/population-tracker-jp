@@ -34,8 +34,8 @@ const CheckBoxList: React.FC = () => {
   }
 
   return (
-    <div className={style.checkBoxPaneContainer}>
-      <div className={style.checkbox}>
+    <div className={style.checkBoxPane}>
+      <div className={style.checkboxContainer}>
         {prefectures &&
           prefectures.map((prefecture, idx) => (
             <div key={prefecture.prefCode} className={style.checkboxItem}>
@@ -49,12 +49,7 @@ const CheckBoxList: React.FC = () => {
                   updateCheckedPrefecturesData(idx);
                 }}
               />
-              <label
-                htmlFor={prefecture.prefName}
-                className={style.checkboxLabel}
-              >
-                {prefecture.prefName}
-              </label>
+              <label htmlFor={prefecture.prefName}>{prefecture.prefName}</label>
             </div>
           ))}
       </div>
