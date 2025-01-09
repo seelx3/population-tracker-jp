@@ -64,7 +64,7 @@ export const PopulationChart: React.FC = () => {
           "<b>" +
           this.series.name +
           "</b><br>" +
-          this.x +
+          categories[this.x] +
           "年<br>" +
           populationFormatter(this.y as number) +
           "人"
