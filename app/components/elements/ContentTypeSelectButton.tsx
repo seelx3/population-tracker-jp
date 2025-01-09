@@ -1,5 +1,5 @@
-import style from "@/app/styles/contentTypeButton.module.css";
 import React from "react";
+import style from "@/app/styles/contentTypeButton.module.css";
 
 type ContentTypeButtonProps = {
   content: {

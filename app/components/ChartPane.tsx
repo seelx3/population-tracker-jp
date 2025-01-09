@@ -1,7 +1,7 @@
-import { PopulationChart } from "@/app/components/PopulationChart";
-import style from "@/app/styles/chartPane.module.css";
 import React from "react";
 import { ContentTypeSelectTab } from "./ContentTypeSelectTab";
+import { PopulationChart } from "@/app/components/PopulationChart";
+import style from "@/app/styles/chartPane.module.css";
 
 export const ChartPane: React.FC = () => {
   return (

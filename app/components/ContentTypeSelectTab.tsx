@@ -1,7 +1,7 @@
-import { useActiveKey } from "@/app/hooks/useActiveKey";
-import style from "@/app/styles/contentTypeSelectTab.module.css";
 import React from "react";
 import { ContentTypeButton } from "./elements/ContentTypeSelectButton";
+import { useActiveKey } from "@/app/hooks/useActiveKey";
+import style from "@/app/styles/contentTypeSelectTab.module.css";
 
 const CONTENTS = [
   {

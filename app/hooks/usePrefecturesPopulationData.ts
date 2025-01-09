@@ -1,11 +1,10 @@
-import { PrefectureWithPopulationComposition } from "@/app/types";
-
-import { getPrefecturePopulationCompositionData } from "@/app/utils/getPrefecturesPopulationCompositionData";
 import { useQueryClient } from "@tanstack/react-query";
 import { atom, useAtom } from "jotai";
 import { useCallback } from "react";
 import { useCheckedPrefectures } from "./useCheckedPrefectures";
 import { usePrefectures } from "./usePrefectures";
+import { getPrefecturePopulationCompositionData } from "@/app/utils/getPrefecturesPopulationCompositionData";
+import { PrefectureWithPopulationComposition } from "@/app/types";
 
 export const prefecturesPopulationCompositionDataAtom = atom<
   PrefectureWithPopulationComposition[]

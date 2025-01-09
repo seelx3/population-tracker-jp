@@ -1,6 +1,6 @@
+import React from "react";
 import style from "@/app/styles/checkBox.module.css";
 import { Prefecture } from "@/app/types";
-import React from "react";
 
 type Props = {
   prefecture: Prefecture;

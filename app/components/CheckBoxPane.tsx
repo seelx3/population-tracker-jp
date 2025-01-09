@@ -1,6 +1,6 @@
-import style from "@/app/styles/checkBoxPane.module.css";
 import React from "react";
 import { CheckBoxList } from "./CheckBoxList";
+import style from "@/app/styles/checkBoxPane.module.css";
 
 export const CheckBoxPane: React.FC = () => {
   return (

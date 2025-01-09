@@ -1,10 +1,10 @@
+import { QueryClient } from "@tanstack/react-query";
+import { fetchPopulationCompositionData } from "../endpoints/populationCompositionData";
 import {
   PopulationCompositionAPIResponse,
   Prefecture,
   PrefectureWithPopulationComposition,
 } from "@/app/types";
-import { QueryClient } from "@tanstack/react-query";
-import { fetchPopulationCompositionData } from "../endpoints/populationCompositionData";
 
 const POPULATION_TOTAL = "総人口";
 const POPULATION_YOUNG = "年少人口";

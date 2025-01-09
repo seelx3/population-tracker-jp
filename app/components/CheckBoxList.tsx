@@ -1,9 +1,9 @@
-import style from "@/app/styles/checkBoxPane.module.css";
 import React from "react";
 import { useCheckedPrefectures } from "../hooks/useCheckedPrefectures";
 import { usePrefectures } from "../hooks/usePrefectures";
 import { usePrefecturesPopulationData } from "../hooks/usePrefecturesPopulationData";
 import { CheckBox } from "./elements/CheckBox";
+import style from "@/app/styles/checkBoxPane.module.css";
 
 export const CheckBoxList: React.FC = () => {
   const {
