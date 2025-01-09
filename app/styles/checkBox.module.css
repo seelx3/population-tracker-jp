@@ -1,0 +1,9 @@
+.checkboxItem {
+  display: flex;
+  gap: 0.2rem;
+  width: 5.5rem;
+}
+
+.checkboxInput:hover {
+  cursor: pointer;
+}

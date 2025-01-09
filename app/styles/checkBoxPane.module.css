@@ -1,4 +1,4 @@
-.checkBoxPane {
+.checkBoxListContainer {
   background-color: rgb(249 250 251);
   border-radius: 0.5rem;
   padding: 1rem;
@@ -8,14 +8,4 @@
 .checkboxContainer {
   display: flex;
   flex-wrap: wrap;
-}
-
-.checkboxItem {
-  display: flex;
-  gap: 0.2rem;
-  width: 5.5rem;
-}
-
-.checkboxInput:hover {
-  cursor: pointer;
 }
