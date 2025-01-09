@@ -1,7 +1,7 @@
 import styles from "@/app/styles/page.module.css";
 import React from "react";
 
-import { PopuTrackLogo } from "@/app/components/PopuTrackLogo";
+import { PopuTrackHeader } from "@/app/components/PopuTrackHeader";
 import { PopuTrackPane } from "@/app/components/PopuTrackPane";
 
 const Page: React.FC = () => {
@@ -10,17 +10,21 @@ const Page: React.FC = () => {
   }
 
   return (
-    <main className={styles.main}>
-      <div className={styles.mainContainer}>
+    <div className={styles.root}>
+      <header className={styles.headerWrapper}>
         <div className={styles.header}>
-          <PopuTrackLogo />
+          <PopuTrackHeader />
         </div>
-        <PopuTrackPane />
-        <footer className={styles.footer}>
-          <p>&copy; {new Date().getFullYear()} seelx3</p>
-        </footer>
-      </div>
-    </main>
+      </header>
+      <main className={styles.mainWrapper}>
+        <div className={styles.main}>
+          <PopuTrackPane />
+        </div>
+      </main>
+      <footer className={styles.footer}>
+        <p>&copy; {new Date().getFullYear()} seelx3</p>
+      </footer>
+    </div>
   );
 };
 
