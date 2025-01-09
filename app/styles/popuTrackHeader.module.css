@@ -1,4 +1,4 @@
-.popuTrackHeader {
+.header {
   display: flex;
   align-items: center;
   color: white;
@@ -7,11 +7,40 @@
   line-height: 1;
 }
 
-.popuTrackLogoIcon {
+.headerLogoWrapper {
+  margin-right: auto;
+  display: flex;
+  flex-wrap: nowrap;
+  flex-direction: row;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.headerLogoIcon {
   height: 1.5rem;
   width: 1.5rem;
 }
 
-.popuTrackLogoText {
+.headerTitle {
   font-size: 1.5rem;
+}
+
+.headerGithubIconContainer {
+  height: 2.6rem;
+  width: 2.6rem;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+}
+
+.headerGithubIconContainer:hover {
+  cursor: pointer;
+  background-color: rgb(90, 90, 90);
+}
+
+.headerGithubIcon {
+  height: 1.8rem;
+  width: 1.8rem;
 }
