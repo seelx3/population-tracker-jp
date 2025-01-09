@@ -1,8 +1,8 @@
 import React from "react";
 import styles from "@/app/styles/page.module.css";
 
-import { PopuTrackHeader } from "@/app/components/PopuTrackHeader";
-import { PopuTrackPane } from "@/app/components/PopuTrackPane";
+import { Header } from "@/app/components/Header";
+import { PopuTrackPane } from "@/app/components/PopulationTracker";
 
 const Page: React.FC = () => {
   if (!process.env.API_KEY) {
@@ -13,7 +13,7 @@ const Page: React.FC = () => {
     <div className={styles.root}>
       <header className={styles.headerWrapper}>
         <div className={styles.header}>
-          <PopuTrackHeader />
+          <Header />
         </div>
       </header>
       <main className={styles.mainWrapper}>

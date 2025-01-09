@@ -1,9 +1,9 @@
 import React from "react";
-import { ContentTypeButton } from "./elements/ContentTypeSelectButton";
+import { PopulationTypeButton } from "./elements/PopulationTypeSelectButton";
 import { useActiveKey } from "@/app/hooks/useActiveKey";
-import style from "@/app/styles/contentTypeSelectTab.module.css";
+import style from "@/app/styles/populationTypeSelectTab.module.css";
 
-const CONTENTS = [
+const POPULATION_TYPES = [
   {
     key: "total",
     label: "総人口",
@@ -22,14 +22,14 @@ const CONTENTS = [
   },
 ];
 
-export const ContentTypeSelectTab: React.FC = () => {
+export const PopulationTypeSelectTab: React.FC = () => {
   const { activeKey, setActiveKey } = useActiveKey();
 
   return (
     <ul className={style.chartTabUl}>
-      {CONTENTS.map((content) => (
+      {POPULATION_TYPES.map((content) => (
         <li key={content.key} className={style.chartTabLi}>
-          <ContentTypeButton
+          <PopulationTypeButton
             content={content}
             activeKey={activeKey}
             setActiveKey={setActiveKey}

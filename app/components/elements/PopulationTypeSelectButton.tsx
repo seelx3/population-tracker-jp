@@ -1,7 +1,7 @@
 import React from "react";
-import style from "@/app/styles/contentTypeButton.module.css";
+import style from "@/app/styles/populationTypeButton.module.css";
 
-type ContentTypeButtonProps = {
+type Props = {
   content: {
     key: string;
     label: string;
@@ -10,7 +10,7 @@ type ContentTypeButtonProps = {
   setActiveKey: (key: string) => void;
 };
 
-export const ContentTypeButton: React.FC<ContentTypeButtonProps> = ({
+export const PopulationTypeButton: React.FC<Props> = ({
   content,
   activeKey,
   setActiveKey,

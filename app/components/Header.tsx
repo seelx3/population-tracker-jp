@@ -2,13 +2,13 @@ import React from "react";
 import { HiOutlineChartBar } from "react-icons/hi2";
 import { FaGithub } from "react-icons/fa";
 import Link from "next/link";
-import style from "@/app/styles/popuTrackHeader.module.css";
+import style from "@/app/styles/header.module.css";
 
 import { lusitana } from "@/app/ui/fonts";
 
 const GITHUB_URL = "https://github.com/seelx3/population-tracker-jp";
 
-export const PopuTrackHeader: React.FC = () => {
+export const Header: React.FC = () => {
   return (
     <div className={`${lusitana.className} ${style.header}`}>
       <div className={style.headerLogoWrapper}>
