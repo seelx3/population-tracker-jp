@@ -64,7 +64,16 @@ export const usePrefecturesPopulationData = () => {
         }
       }
     },
-    [prefectures, checkedPrefectures, prefecturesPopulationCompositionData],
+    [
+      prefectures,
+      setError,
+      checkedPrefectures,
+      setCheckedPrefectures,
+      setPrefecturesPopulationCompositionData,
+      prefecturesPopulationCompositionData,
+      setIsLoading,
+      queryClient,
+    ],
   );
 
   return {
