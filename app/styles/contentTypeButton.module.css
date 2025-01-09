@@ -1,0 +1,24 @@
+.chartTabButton {
+  background-color: white;
+  border: none;
+  cursor: pointer;
+  padding: 0.5rem;
+}
+
+.chartTabButtonActive {
+  border: 1px solid rgb(219 219 219);
+  border-bottom: none;
+}
+
+.chartTabButtonInactive {
+  border: none;
+  border-bottom: 1px solid rgb(219 219 219);
+}
+
+.chartTabButton:hover {
+  border: none;
+  cursor: pointer;
+  filter: brightness(0.95);
+  padding: 0.5rem;
+  transition: 0.3s;
+}
