@@ -9,7 +9,7 @@
     "lint": "next lint",
     "lint-fix": "next lint --fix",
     "prepare": "husky",
-    "prettify": "prettier --cache --write . --plugin=prettier-plugin-organize-imports",
+    "prettify": "prettier --cache --write .",
     "start": "next start",
     "test": "vitest",
     "test-e2e:chromium": "playwright test --project=chromium"
