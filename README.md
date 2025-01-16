@@ -17,7 +17,7 @@
 | スタイリング   | css-modules           |
 | フォーマッタ   | Prettier              |
 | リンター       | ESLint                |
-| テストツール   | Playwright            |
+| テストツール   | Vitest, Playwright    |
 | その他         | Husky, Lint-staged    |
 
 ## 特徴
