@@ -29,5 +29,6 @@ export async function GET(req: Request) {
     headers: {
       "X-API-KEY": process.env.API_KEY || "",
     },
+    cache: "force-cache",
   });
 }
